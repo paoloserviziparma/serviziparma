@@ -175,17 +175,11 @@
       azienda: [['contabilita', 'Contabilità, vendite e magazzino'], ['processi', 'Processi completi: logistica, produzione, analitica'], ['commercialista', 'Lavoro insieme al mio commercialista'], ['paghe', 'Paghe e personale']],
       ditta: [['fatture', 'Fatture elettroniche'], ['commercialista', 'Lavoro insieme al mio commercialista']]
     };
-    var products = {
-      'studio-contabilita': ['PROFIS', '/professionisti/profis/', 'Contabilità ordinaria, semplificata e dei professionisti, dichiarativi e bilanci.'],
-      'studio-paghe': ['JOB', '/professionisti/job/', 'Amministrazione del personale multiaziendale e multicontrattuale.'],
-      'studio-organizzazione': ['STUDIO', '/professionisti/studio/', 'Mandati, parcellazione, pratiche, agende e controllo di gestione.'],
-      'azienda-contabilita': ['SPRING', '/aziende/spring/', 'Gestionale completo per piccole aziende, rapido da mettere in funzione.'],
-      'azienda-processi': ['eSOLVER', '/aziende/esolver/', 'ERP per amministrazione, logistica, produzione servizi e analitica.'],
-      'azienda-commercialista': ['PROFIS AZ', '/aziende/profis-az/', 'L’azienda gestisce il quotidiano, lo studio segue adempimenti e bilanci.'],
-      'azienda-paghe': ['JOB', '/professionisti/job/', 'Amministrazione del personale, anche per le aziende.'],
-      'ditta-fatture': ['QUADRA', '/aziende/quadra/', 'Fatturazione web semplice, anche per i forfettari.'],
-      'ditta-commercialista': ['PROFIS AZ', '/aziende/profis-az/', 'Fatture e incassi in azienda, adempimenti allo studio.']
-    };
+    /* I prodotti e gli indirizzi arrivano dalla pagina: così restano corretti
+       anche nelle anteprime servite in una sottocartella (percorsi relativi). */
+    var dati = document.getElementById('sel-prodotti');
+    var products = dati ? JSON.parse(dati.textContent) : {};
+    var urlContatti = sel.getAttribute('data-url-contatti') || '/contatti/';
     var needBox = document.getElementById('sel-bisogno');
     var out = { name: document.getElementById('sel-nome'), desc: document.getElementById('sel-desc'), cta: document.getElementById('sel-cta'), more: document.getElementById('sel-more') };
     function val(n) { var c = sel.querySelector('input[name="' + n + '"]:checked'); return c ? c.value : ''; }
@@ -212,7 +206,7 @@
       var utenti = (document.getElementById('sel-utenti').value || '').trim();
       var nota = 'Vorrei una demo di ' + name + '.' + (extra ? ' Settore/attività: ' + extra + '.' : '') + (utenti ? ' Utenti previsti: ' + utenti + '.' : '');
       var optName = { 'PROFIS': 'Profis', 'STUDIO': 'Studio', 'JOB': 'Job', 'SPRING': 'Spring', 'eSOLVER': 'eSolver', 'PROFIS AZ': 'Profis AZ', 'QUADRA': 'Quadra' }[p[0]] || p[0];
-      out.cta.href = '/contatti/?prodotto=' + encodeURIComponent(optName) + '&nota=' + encodeURIComponent(nota) + '#modulo';
+      out.cta.href = urlContatti + (urlContatti.indexOf('?') > -1 ? '&' : '?') + 'prodotto=' + encodeURIComponent(optName) + '&nota=' + encodeURIComponent(nota) + '#modulo';
       out.cta.textContent = 'Richiedi una demo di ' + p[0];
       out.more.href = p[1];
     }
