@@ -28,8 +28,7 @@ def build(g):
   <div class="hero__art" aria-hidden="true">
     <div class="hero__panel"><div class="hero__ring" data-parallax="0.12"></div><div class="hero__ring2" data-parallax="0.06"></div></div>
     <div class="hero__year"><b>1990</b><span>concessionario Sistemi<br>certificato SISTEMI CITTÀ</span></div>
-    <div class="hero__card" data-parallax="-0.05"><div class="hero__card-h"><b>PROFIS · Contabilità</b><span>esempio</span></div>
-      <ul><li><span>Fatture elettroniche</span><b>importate</b></li><li><span>Corrispettivi dal cassetto fiscale</span><b>importati</b></li><li><span>Liquidazione IVA</span><b>pronta</b></li><li><span>F24</span><b class="red">da inviare</b></li></ul></div>
+    <div class="hero__dog" data-parallax="-0.05"><img src="/assets/img/campagna/cane-scafandro.png" alt="" width="190" height="226" fetchpriority="high"></div>
     <div class="hero__badge">{icon("users")}<div><b>14 persone</b> a Parma<br><span>assistenza e formazione certificate</span></div></div>
   </div>
 </div></section>
@@ -56,7 +55,7 @@ def build(g):
   </div>
 </div></section>
 
-{slogan("slogan-cane", "i [software] #Sistemi sono i migliori amici del vostro {futuro}.")}
+{slogan("slogan-voci", "sentite le <voci>? è il nostro [servizio] #clienti.")}
 
 <section class="section section--dark" id="selettore"><div class="wrap selector">
   <div class="selector__intro"><span class="kicker">Tre domande, un consiglio</span><h2 class="h2 js-split">Quale software fa per te?</h2>

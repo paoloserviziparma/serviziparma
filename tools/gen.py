@@ -103,7 +103,7 @@ FOOTER = f'''<footer class="site-footer">
       <li><a href="{TEL_HREF}">{TEL}</a></li><li><a href="mailto:{MAIL}">{MAIL}</a></li><li><a href="{MAPS}" rel="noopener" target="_blank">Via Sicuri 42/a, Parma</a></li></ul></div>
   </div>
   <div class="wrap site-footer__bottom">
-    <span>© <span data-year>2026</span> Servizi Informatici Srl · Concessionario Sistemi SpA · I marchi dei prodotti appartengono a Sistemi SpA</span>
+    <span>© <span data-year>2026</span> Servizi Informatici Srl · Concessionario Sistemi SpA · Marchi dei prodotti e illustrazioni della campagna: © Sistemi SpA</span>
     <span><a href="/privacy-policy/">Privacy policy</a> · <a href="/cookie-policy/">Cookie policy</a></span>
   </div>
 </footer>'''
@@ -286,7 +286,7 @@ P = {
    also=[], who='Piccole imprese seguite da un commercialista che usa Profis.',
    desc='Profis AZ di Sistemi a Parma: l’azienda gestisce fatture, acquisti e magazzino, il commercialista adempimenti, dichiarazioni e bilanci.'),
  'peoplelink': dict(name='PEOPLELINK', sito='https://www.sistemi.com/peoplelink/', schede=[('PeopleLink','Peoplelink-Sistemi_scheda.pdf')],
-   title='PeopleLink', cat='aziende', logo=None, camp='peoplelink',
+   title='PeopleLink', cat='aziende', logo='peoplelink', camp='peoplelink',
    local='Software HR e rilevazione presenze a Parma', claim='Le persone, i turni e le spese in un posto solo.',
    breve='La piattaforma HR cloud e mobile di Sistemi: presenze e turni, ferie, timesheet e commesse, note spese e controllo accessi. Si integra con Job.',
    sub='Risorse umane, presenze, commesse, note spese',
