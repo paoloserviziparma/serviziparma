@@ -26,10 +26,7 @@ def build(g):
     <div class="btn-row"><a class="btn btn--red" href="/contatti/#modulo">Chiedi una demo</a><a class="btn btn--line" href="#selettore">Quale software fa per me?</a></div>
   </div>
   <div class="hero__art" aria-hidden="true">
-    <div class="hero__panel"><div class="hero__ring" data-parallax="0.12"></div><div class="hero__ring2" data-parallax="0.06"></div></div>
-    <div class="hero__year"><b>1990</b><span>concessionario Sistemi<br>certificato SISTEMI CITTÀ</span></div>
-    <div class="hero__dog" data-parallax="-0.05"><img src="/assets/img/campagna/cane-scafandro.png" alt="" width="190" height="226" fetchpriority="high"></div>
-    <div class="hero__badge">{icon("users")}<div><b>14 persone</b> a Parma<br><span>assistenza e formazione certificate</span></div></div>
+    <img class="hero__dog" src="/assets/img/campagna/cane-scafandro.png" alt="" width="190" height="226" data-parallax="-0.05" fetchpriority="high">
   </div>
 </div></section>
 <section class="facts" aria-label="In breve"><div class="wrap facts__in">
