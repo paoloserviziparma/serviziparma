@@ -1,0 +1,33 @@
+# Sistemi Parma – Servizi Informatici Srl
+
+> Concessionario certificato Sistemi SpA dal 1990 (qualifica SISTEMI CITTÀ). Vende, installa e assiste software gestionali per studi professionali e aziende nelle province di Parma, Piacenza e Reggio Emilia. 14 persone.
+
+## Contatti
+- Indirizzo: Via Giulio e Giacinto Sicuri 42/a, 43124 Parma (PR), Italia
+- Telefono: 0521 252824
+- Email: info@serviziparma.com
+- P.IVA: 01721620340
+
+## Software per studi professionali
+- [Profis](https://www.serviziparma.com/professionisti/profis/): contabilità, fiscale, bilanci, gruppi societari e pratiche per commercialisti
+- [Studio](https://www.serviziparma.com/professionisti/studio/): mandati, parcellazione, pratiche, agende, controllo di gestione, area legale
+- [Job](https://www.serviziparma.com/professionisti/job/): paghe, amministrazione del personale, presenze, 730 e 770
+
+## Software per aziende
+- [Quadra](https://www.serviziparma.com/aziende/quadra/): fatturazione elettronica web, anche per forfettari
+- [Profis AZ](https://www.serviziparma.com/aziende/profis-az/): gestione dell'azienda coadiuvata dal commercialista
+- [Spring](https://www.serviziparma.com/aziende/spring/): gestionale per piccole e micro imprese
+- [eSolver](https://www.serviziparma.com/aziende/esolver/): ERP per amministrazione, logistica, analitica e servizi
+- [Gestionali verticali](https://www.serviziparma.com/aziende/verticali/): Agrifarm, Autotrasporti, Green Services, Manutenzione impianti, Euritmo, Filconad
+
+## Servizi
+- [Corsi ed eventi](https://www.serviziparma.com/corsi/): corsi pratici in aula a Parma (massimo 6 partecipanti) e incontri gratuiti 100% Profis
+- [Assistenza remota](https://www.serviziparma.com/assistenza/): ticket Assistenza Online Sistemi, TeamViewer, AnyDesk
+- [Whistleblowing](https://www.serviziparma.com/whistleblowing/): piattaforma cloud per il canale di segnalazione previsto dal D.lgs. 24/2023
+- [Siti web](https://www.serviziparma.com/siti-web/): siti per aziende e studi, integrati con gestionale ed e-commerce
+- Sistemi in Rete: uso dei gestionali in cloud dalle Service Farm Sistemi
+- [Le Pillole](https://www.serviziparma.com/pillole/): videotutorial sui software Sistemi
+
+## Note
+- I prezzi non sono pubblicati: si richiedono con il modulo contatti.
+- L'iscrizione ai corsi a pagamento avviene con un modulo; la fattura è emessa a parte.

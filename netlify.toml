@@ -1,0 +1,159 @@
+# Sito statico: nessuna build. I file HTML si rigenerano in locale con tools/gen.py
+[build]
+  publish = "."
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+
+[[headers]]
+  for = "/assets/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+[[headers]]
+  for = "/assets/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+[[headers]]
+  for = "/assets/video/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+[[headers]]
+  for = "/assets/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+[[headers]]
+  for = "/assets/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# ---- Redirect 301 dai vecchi indirizzi Wix ----
+[[redirects]]
+  from = "/chi-siamo"
+  to = "/#chi-siamo"
+  status = 301
+[[redirects]]
+  from = "/professionisti"
+  to = "/professionisti/"
+  status = 301
+[[redirects]]
+  from = "/software-per-aziende"
+  to = "/aziende/"
+  status = 301
+[[redirects]]
+  from = "/gestionali-verticali"
+  to = "/aziende/verticali/"
+  status = 301
+[[redirects]]
+  from = "/software-whistleblowing"
+  to = "/whistleblowing/"
+  status = 301
+[[redirects]]
+  from = "/portfolio-websites"
+  to = "/siti-web/"
+  status = 301
+[[redirects]]
+  from = "/assistenzaremota"
+  to = "/assistenza/"
+  status = 301
+[[redirects]]
+  from = "/corsobasecontabilitacespiti"
+  to = "/corsi/contabilita-cespiti/"
+  status = 301
+[[redirects]]
+  from = "/corsicontabilitacespiti"
+  to = "/corsi/"
+  status = 301
+[[redirects]]
+  from = "/studio-4"
+  to = "/corsi/studio-4/"
+  status = 301
+[[redirects]]
+  from = "/studio4"
+  to = "/corsi/studio-4/"
+  status = 301
+[[redirects]]
+  from = "/profis-pratiche-contratti-di-locazione"
+  to = "/corsi/pratiche-locazioni/"
+  status = 301
+[[redirects]]
+  from = "/pratichelocazione"
+  to = "/corsi/pratiche-locazioni/"
+  status = 301
+[[redirects]]
+  from = "/contatto"
+  to = "/contatti/"
+  status = 301
+[[redirects]]
+  from = "/100"
+  to = "/corsi/100-profis/"
+  status = 301
+[[redirects]]
+  from = "/booking-calendar/*"
+  to = "/corsi/100-profis/"
+  status = 301
+[[redirects]]
+  from = "/service-page/*"
+  to = "/corsi/100-profis/"
+  status = 301
+[[redirects]]
+  from = "/blog"
+  to = "/pillole/"
+  status = 301
+[[redirects]]
+  from = "/blog/*"
+  to = "/pillole/"
+  status = 301
+[[redirects]]
+  from = "/post/:slug"
+  to = "/pillole/:slug/"
+  status = 301
+[[redirects]]
+  from = "/events/*"
+  to = "/corsi/"
+  status = 301
+[[redirects]]
+  from = "/event-details/*"
+  to = "/corsi/"
+  status = 301
+[[redirects]]
+  from = "/spring"
+  to = "/aziende/spring/"
+  status = 301
+[[redirects]]
+  from = "/esolver"
+  to = "/aziende/esolver/"
+  status = 301
+[[redirects]]
+  from = "/profis"
+  to = "/professionisti/profis/"
+  status = 301
+[[redirects]]
+  from = "/studio"
+  to = "/professionisti/studio/"
+  status = 301
+[[redirects]]
+  from = "/job"
+  to = "/professionisti/job/"
+  status = 301
+[[redirects]]
+  from = "/pricing-plans/*"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/account/*"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/profile/*"
+  to = "/"
+  status = 301
+[[redirects]]
+  from = "/members/*"
+  to = "/"
+  status = 301
