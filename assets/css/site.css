@@ -229,6 +229,8 @@ a:hover .thumb__play,button:hover .thumb__play{transform:scale(1.08)}
 .video-box{max-width:900px}
 .video-btn{display:block;width:100%;border:0;padding:0;background:none;cursor:pointer;text-align:left}
 .video-missing{aspect-ratio:16/9;border-radius:14px;background:var(--bg-soft);display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;color:#444;border:1px dashed #b9b1ac}
+.video-note{margin:14px 0 0;font-size:14px;color:var(--muted)}
+.thumb__soon{position:absolute;right:16px;bottom:16px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.5);color:#fff;border-radius:999px;padding:6px 14px;font-family:var(--body);font-size:13px;font-weight:600}
 
 /* Modal */
 .modal{position:fixed;inset:0;z-index:80;background:rgba(0,0,0,.82);display:flex;align-items:center;justify-content:center;padding:24px}

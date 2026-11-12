@@ -4,6 +4,7 @@ def build(g):
     h = g['h']; page = g['page']; page_hero = g['page_hero']; P = g['P']; icon = g['icon']
     slogan = g['slogan']; cta_band = g['cta_band']; faq_html = g['faq_html']; faq_ld = g['faq_ld']
     product_card = g['product_card']; post_card = g['post_card']; POSTS = g['POSTS']; COURSES = g['COURSES']
+    video_src = g['video_src']; PROMO_YT = g['PROMO_YT']; THUMBS = g['THUMBS']
     contact_form = g['contact_form']; TEL = g['TEL']; TEL_HREF = g['TEL_HREF']; MAIL = g['MAIL']; MAPS = g['MAPS']; ADDR = g['ADDR']
     SITE = g['SITE']; PLAY = g['PLAY']
 
@@ -16,7 +17,8 @@ def build(g):
         ('Organizzate corsi di formazione?', 'Sì: corsi pratici nella nostra aula di Parma, sui tuoi dati, con un massimo di 6 partecipanti e docenti certificati Sistemi. Organizziamo anche gli incontri gratuiti 100% Profis direttamente nel tuo studio.'),
         ('Come chiedo una demo?', 'Compila il modulo contatti o chiamaci: ti mostriamo il software più adatto e ti aiutiamo a scegliere.'),
     ]
-    latest = ''.join(post_card(i, s, t, d) for i, (s, t, d, *_) in enumerate(POSTS[:3]))
+    con_video = [p for p in POSTS if video_src(p[0], p[3])]
+    latest = ''.join(post_card(i, s, t, d, y) for i, (s, t, d, y, _tg) in enumerate(con_video[:3]))
     body = f'''<section class="hero"><div class="wrap hero__in">
   <div class="hero__text hero-seq">
     <h1><span class="kicker">Software gestionali a Parma · Via Sicuri 42/a</span>Il software giusto per lo studio e per l’azienda.</h1>
@@ -143,7 +145,9 @@ def build(g):
 </div></section>
 
 <section class="section" id="chi-siamo"><div class="wrap split">
-  <div><span class="kicker">Chi siamo</span><h2 class="h2 js-split">Partner Sistemi dal 1990</h2></div>
+  <div><span class="kicker">Chi siamo</span><h2 class="h2 js-split">Partner Sistemi dal 1990</h2>
+    <button type="button" class="video-btn reveal" style="margin-top:28px;max-width:460px" data-video="https://www.youtube.com/watch?v={PROMO_YT}" data-title="Servizi Informatici – il software per lo studio professionale" aria-label="Riproduci il video di presentazione">
+      <div class="thumb thumb--red"><span class="thumb__t">Guarda chi siamo<br>in un minuto</span><span class="thumb__play">{PLAY}</span></div></button></div>
   <div class="reveal" style="color:#444">
     <p>Servizi Informatici Srl nasce nel 1990 come concessionario certificato Sistemi SpA per le province di Parma, Piacenza e Reggio Emilia. Grazie a competenze e certificazioni ha ottenuto la qualifica SISTEMI CITTÀ e il nome Sistemi Parma.</p>
     <p>Abbiamo sviluppato competenze soprattutto per gli studi professionali, con la linea Profis, e per le aziende, con le linee Spring ed eSolver. Oggi siamo in 14, distribuiti tra le diverse linee di prodotto. Realizziamo anche siti web per aziende e studi e integriamo i gestionali con le piattaforme di e-commerce.</p>
@@ -323,9 +327,16 @@ def build(g):
 
     # ------------------------------------------------------------ Pillole
     crumbs = [(None, 'Le Pillole')]
-    cards = ''.join(post_card(i, s, t, d) for i, (s, t, d, *_) in enumerate(POSTS))
+    pronte = [p for p in POSTS if video_src(p[0], p[3])]
+    attesa = [p for p in POSTS if not video_src(p[0], p[3])]
+    cards = ''.join(post_card(i, s, t, d, y) for i, (s, t, d, y, _tg) in enumerate(pronte))
     body = page_hero(crumbs, 'Videotutorial software Sistemi', 'Le Pillole', 'Brevi video in cui ti mostriamo come usare al meglio le funzioni dei software Sistemi: conservazione digitale, fatture elettroniche, pratiche e molto altro.')
     body += f'<section class="section"><div class="wrap"><div class="grid grid--3" style="gap:40px 24px">{cards}</div></div></section>'
+    if attesa:
+        cards2 = ''.join(post_card(i, s, t, d, y) for i, (s, t, d, y, _tg) in enumerate(attesa))
+        body += f'''<section class="section section--soft"><div class="wrap">
+  <div class="head-row"><h2 class="h2 js-split">In arrivo</h2><p>Stiamo trasferendo queste pillole sul nuovo sito. Nel frattempo puoi chiedercele scrivendo a <a href="mailto:{g["MAIL"]}">{g["MAIL"]}</a>.</p></div>
+  <div class="grid grid--3" style="gap:40px 24px">{cards2}</div></div></section>'''
     page('/pillole/', 'Le Pillole: videotutorial sui software Sistemi | Sistemi Parma', 'Le Pillole di Sistemi Parma: brevi videotutorial su Profis, conservazione digitale, fatture elettroniche, Sportello e altri software Sistemi.', body, crumbs)
 
     # ------------------------------------------------------------ Contatti

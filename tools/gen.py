@@ -458,44 +458,60 @@ def course_page(key):
     page(path, f'Corso {c.get("short", c["title"])} in aula a Parma | Sistemi Parma', f'Corso pratico {c.get("short", c["title"])} ({c["ore"]}) a Parma, Via Sicuri 42/a: massimo 6 partecipanti, docenti certificati Sistemi. Iscriviti online.', body, crumbs, ld)
 
 # ---------------------------------------------------------------- Pillole
+# (slug, titolo, data, id del video YouTube del canale aziendale oppure None, tag)
+# Canale: https://www.youtube.com/@serviziinformaticisrl-parm8248
+# Un video locale in assets/video/<slug>.mp4 ha la precedenza sul video YouTube.
 POSTS = [
- ('la-delega-unica','La Delega Unica','2025-12-23','093ca4_605d42a956914e3b999b58f9db70125e','Delega Unica'),
- ('i-documenti-della-conservazione','I Documenti della Conservazione','2023-12-14','0af47d_65929340939c46da8f8b260f2fe59eec','Conservazione digitale, Profis'),
- ('notifiche-web-sportello-conservazione','Notifiche Web – Sportello Conservazione','2023-12-11','0af47d_755e7188036d4d68ad7434ed561124dc','Sportello Conservazione'),
+ ('la-delega-unica','La Delega Unica','2025-12-23',None,'Delega Unica'),
+ ('i-documenti-della-conservazione','I Documenti della Conservazione','2023-12-14',None,'Conservazione digitale, Profis'),
+ ('notifiche-web-sportello-conservazione','Notifiche Web – Sportello Conservazione','2023-12-11',None,'Sportello Conservazione'),
  ('download-massivo-fatture-agenzia-delle-entrate','Download massivo fatture Agenzia delle Entrate','2023-03-29',None,'Fatture elettroniche'),
  ('sportello-documenti-condivisi-mobile','Sportello Documenti Condivisi MOBILE','2022-04-22',None,'Sportello'),
- ('conservazione-digitale-il-controllo-del-cruscotto','Conservazione digitale: il controllo del cruscotto','2022-01-18',None,'Conservazione digitale'),
- ('gestione-documenti-integrativi','Gestione documenti integrativi','2021-09-13',None,'Profis'),
- ('i-contratti-di-locazione','I Contratti di Locazione','2020-11-24',None,'Contratti di locazione'),
- ('la-riconciliazione-fatture','La Riconciliazione fatture','2020-11-10',None,'Fatture elettroniche'),
- ('registrazione-automatica-cassa-banca-paghe','Registrazione automatica cassa, banca, paghe','2020-10-27',None,'Contabilità'),
- ('analisi-crisi-di-impresa','Analisi crisi di Impresa','2020-10-13',None,'Crisi d’impresa'),
+ ('conservazione-digitale-il-controllo-del-cruscotto','Conservazione digitale: il controllo del cruscotto','2022-01-18','WvZDsLNwcjU','Conservazione digitale'),
+ ('esolver-come-aggiornare-i-codici-iva','eSolver: come aggiornare i codici IVA','2021-09-24','WWMsv2aYCnc','eSolver, IVA'),
+ ('contabilizzazione-automatica-fatture-e-corrispettivi','Contabilizzazione automatica fatture e corrispettivi','2021-09-23','FkSBprllt68','Profis, Fatture elettroniche'),
+ ('gestione-documenti-integrativi','Gestione documenti integrativi','2021-09-13','4ayJ9CkR3SI','Profis'),
+ ('i-contratti-di-locazione','I Contratti di Locazione','2020-11-24','gASvLNzW5H0','Contratti di locazione'),
+ ('la-riconciliazione-fatture','La Riconciliazione fatture','2020-11-10','IkwlLcdsrkw','Fatture elettroniche'),
+ ('registrazione-automatica-cassa-banca-paghe','Registrazione automatica cassa, banca, paghe','2020-10-27','Fdj6J7a5Pmk','Contabilità'),
+ ('analisi-crisi-di-impresa','Analisi crisi di Impresa','2020-10-13','u6HswNBZgfQ','Crisi d’impresa'),
 ]
+PROMO_YT = 'fFs1ofhfDec'  # Servizi Informatici Video Promo Mercato Studio
 MESI = ['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto','settembre','ottobre','novembre','dicembre']
 def itdate(d):
     y, m, g = d.split('-'); return f'{int(g)} {MESI[int(m)-1]} {y}'
 THUMBS = ['thumb--red', '', 'thumb--grey']
-# Video locali presenti nel repository (assets/video/<slug>.mp4): si aggiungono qui quando arrivano i file.
-VIDEO_LOCAL = {s for s, *_ in POSTS if os.path.exists(os.path.join(R, 'assets/video', s + '.mp4'))}
 
-def post_card(i, slug, title, date):
+def video_src(slug, yt):
+    """mp4 locale se presente, altrimenti il video YouTube, altrimenti nessun video."""
+    if os.path.exists(os.path.join(R, 'assets/video', slug + '.mp4')):
+        return '/assets/video/' + slug + '.mp4'
+    return 'https://www.youtube.com/watch?v=' + yt if yt else None
+
+def post_card(i, slug, title, date, yt=None):
+    has = video_src(slug, yt)
+    badge = f'<span class="thumb__play">{PLAY}</span>' if has else '<span class="thumb__soon">in arrivo</span>'
+    meta = 'video' if has else 'video in arrivo'
     return f'''<a class="post-card reveal" href="/pillole/{slug}/">
-  <div class="thumb {THUMBS[i % 3]}"><span class="thumb__t">{h(title)}</span><span class="thumb__play">{PLAY}</span></div>
-  <span class="post-card__meta"><time datetime="{date}">{itdate(date)}</time> · video</span>
+  <div class="thumb {THUMBS[i % 3]}"><span class="thumb__t">{h(title)}</span>{badge}</div>
+  <span class="post-card__meta"><time datetime="{date}">{itdate(date)}</time> · {meta}</span>
   <h3>{h(title)}</h3></a>'''
 
-def post_page(i, slug, title, date, wixid, tags):
+def post_page(i, slug, title, date, yt, tags):
     path = f'/pillole/{slug}/'
     crumbs = [('/pillole/', 'Le Pillole'), (None, title)]
-    if slug in VIDEO_LOCAL:
-        video = f'<button type="button" class="video-btn" data-video="/assets/video/{slug}.mp4" data-title="{h(title)}"><div class="thumb {THUMBS[i % 3]}"><span class="thumb__t">{h(title)}</span><span class="thumb__play">{PLAY}</span></div></button>'
+    src = video_src(slug, yt)
+    if src:
+        video = f'<button type="button" class="video-btn" data-video="{src}" data-title="{h(title)}" aria-label="Riproduci il video: {h(title)}"><div class="thumb {THUMBS[i % 3]}"><span class="thumb__t">{h(title)}</span><span class="thumb__play">{PLAY}</span></div></button>'
+        if yt and not src.startswith('/'):
+            video += f'<p class="video-note">Il video si apre qui nella pagina e viene caricato da YouTube solo quando premi play. Puoi anche <a href="https://www.youtube.com/watch?v={yt}" rel="noopener" target="_blank">guardarlo su YouTube</a>.</p>'
     else:
-        video = '<div class="video-missing"><p><b>Video in arrivo.</b><br>Stiamo trasferendo le pillole sul nuovo sito. Nel frattempo scrivici per riceverlo.</p></div>'
+        video = '<div class="video-missing"><p><b>Video in arrivo.</b><br>Stiamo trasferendo le pillole sul nuovo sito. Nel frattempo <a href="/contatti/?prodotto=Assistenza#modulo">scrivici</a> per riceverlo.</p></div>'
     extra = ''
     if slug == 'notifiche-web-sportello-conservazione':
         extra = '<p>Collegato: <a href="/pillole/conservazione-digitale-il-controllo-del-cruscotto/">il controllo del cruscotto dello Sportello Conservazione</a>.</p>'
-    others = [p for p in POSTS if p[0] != slug][:3]
-    cards = ''.join(post_card(j, s, t, d) for j, (s, t, d, *_ ) in enumerate(others))
+    others = [p for p in POSTS if p[0] != slug and video_src(p[0], p[3])][:3]
+    cards = ''.join(post_card(j, s, t, d, y) for j, (s, t, d, y, _tg) in enumerate(others))
     body = f'''<section class="page-hero"><div class="wrap">{crumbs_html(crumbs)}
   <div class="hero-seq"><h1><span class="kicker">Le Pillole · videotutorial</span>{h(title)}</h1>
   <p class="lead"><time datetime="{date}">{itdate(date)}</time> · {h(tags)}</p></div></div></section>
@@ -506,6 +522,13 @@ def post_page(i, slug, title, date, wixid, tags):
     ld = [{"@context": "https://schema.org", "@type": "BlogPosting", "headline": title, "datePublished": date,
            "author": {"@type": "Organization", "name": "Servizi Informatici Srl"}, "publisher": {"@id": SITE + "/#azienda"},
            "mainEntityOfPage": SITE + path, "inLanguage": "it", "keywords": tags}]
+    if yt:
+        ld.append({"@context": "https://schema.org", "@type": "VideoObject", "name": title,
+                   "description": f'Videotutorial de Le Pillole di Sistemi Parma: {title.lower()}.',
+                   "uploadDate": date, "thumbnailUrl": f'https://i.ytimg.com/vi/{yt}/hqdefault.jpg',
+                   "embedUrl": f'https://www.youtube-nocookie.com/embed/{yt}',
+                   "contentUrl": f'https://www.youtube.com/watch?v={yt}',
+                   "publisher": {"@id": SITE + "/#azienda"}, "inLanguage": "it"})
     page(path, f'{title} – Le Pillole | Sistemi Parma', f'{title}: videotutorial de Le Pillole di Sistemi Parma sui software Sistemi ({tags}).', body, crumbs, ld, og_type='article')
 
 # ---------------------------------------------------------------- Pagine

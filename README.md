@@ -26,9 +26,24 @@ Netlify non esegue nessuna build: pubblica i file così come sono.
 Entrambi hanno honeypot, campo nascosto `lingua` e privacy obbligatoria. Le notifiche email si impostano nel pannello Netlify (Forms → Notifications).
 
 ## Le Pillole (video)
-I video vanno in `assets/video/<slug>.mp4`, dove lo slug è quello della pagina (es. `la-delega-unica.mp4`).
-Poi si rilancia `python3 tools/gen.py`: la pagina mostra il video, che si carica solo al clic.
-Per una nuova pillola si aggiunge una riga all'elenco `POSTS` in `tools/gen.py`.
+Ogni pillola è una riga dell'elenco `POSTS` in `tools/gen.py`:
+`(slug, titolo, data, id-del-video-YouTube o None, tag)`.
+
+Due modi per collegare il video:
+- **YouTube** (quello che usiamo ora): si mette l'id del video del canale
+  [Servizi Informatici Srl - Parma](https://www.youtube.com/@serviziinformaticisrl-parm8248)
+  — l'id è la parte dopo `watch?v=`. Il video si apre in una finestra nella pagina e viene
+  caricato da youtube-nocookie.com solo al clic sul play: prima di allora nessuna richiesta a YouTube.
+- **File locale**: si mette `assets/video/<slug>.mp4`. Ha la precedenza sul video YouTube.
+
+Poi `python3 tools/gen.py`. Le pillole senza video finiscono nel gruppo "In arrivo" in fondo a
+`/pillole/`; quando il video c'è, risalgono da sole nell'elenco principale.
+
+Perché i video YouTube devono essere incorporabili: in YouTube Studio, video → Altre opzioni →
+Licenza e distribuzione → "Consenti incorporamento". Se l'incorporamento è disattivato,
+la finestra mostra il pulsante "Guarda il video su YouTube".
+
+Il video di presentazione nella sezione "Chi siamo" della home è `PROMO_YT` in `tools/gen.py`.
 
 ## Eventi gratuiti (Eventbrite)
 In `/corsi/` c'è un commento con il pulsante da usare: `data-eventbrite="ID_EVENTO"`.

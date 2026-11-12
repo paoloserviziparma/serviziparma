@@ -26,7 +26,7 @@
 - [Whistleblowing](https://www.serviziparma.com/whistleblowing/): piattaforma cloud per il canale di segnalazione previsto dal D.lgs. 24/2023
 - [Siti web](https://www.serviziparma.com/siti-web/): siti per aziende e studi, integrati con gestionale ed e-commerce
 - Sistemi in Rete: uso dei gestionali in cloud dalle Service Farm Sistemi
-- [Le Pillole](https://www.serviziparma.com/pillole/): videotutorial sui software Sistemi
+- [Le Pillole](https://www.serviziparma.com/pillole/): videotutorial sui software Sistemi, pubblicati sul canale YouTube Servizi Informatici Srl - Parma
 
 ## Note
 - I prezzi non sono pubblicati: si richiedono con il modulo contatti.
