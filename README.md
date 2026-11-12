@@ -3,7 +3,7 @@
 Sito statico (HTML/CSS/JS, nessun framework) di www.serviziparma.com, pubblicato su Netlify da questo repository.
 
 ## Struttura
-- `/` home · `/professionisti/` e `/aziende/` (con una pagina per prodotto) · `/aziende/verticali/`
+- `/` home · `/professionisti/` (Profis, Studio, Job) e `/aziende/` (Quadra, Profis AZ, Spring, eSolver, PeopleLink) · `/aziende/verticali/`
 - `/corsi/` (corsi in aula, 100% Profis, eventi gratuiti) · `/pillole/` (blog video)
 - `/assistenza/` · `/whistleblowing/` · `/siti-web/` · `/contatti/`
 - `/privacy-policy/` · `/cookie-policy/` · `/grazie/` · `/grazie-iscrizione/` · `404.html`
@@ -21,7 +21,10 @@ Lo script riscrive tutte le pagine, la sitemap e aggiorna il numero di versione 
 Netlify non esegue nessuna build: pubblica i file così come sono.
 
 ## Link al sito Sistemi
-Ogni pagina prodotto ha, in `tools/gen.py`:
+I prodotti sono descritti nel dizionario `P` di `tools/gen.py`; `cat` decide se la pagina
+finisce sotto `/professionisti/` o `/aziende/`, `logo` è il nome del file in
+`assets/img/prodotti/` (se manca, come per PeopleLink, al suo posto va l'illustrazione
+della campagna indicata da `camp`). Ogni prodotto ha inoltre:
 - `sito=` la pagina ufficiale su sistemi.com (pulsante nella fascia finale e `sameAs` nei dati strutturati);
 - `schede=` l'elenco delle schede PDF, come coppie (titolo, nome del file in
   `https://www.sistemi.com/downloads/`). La prima è anche il pulsante "Scheda PDF" nell'intestazione.

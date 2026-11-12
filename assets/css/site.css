@@ -307,3 +307,4 @@ body.modal-open{overflow:hidden}
 .pdf-link span{font-weight:600;font-size:16px;flex:1 1 140px;min-width:0}
 .pdf-link small{color:var(--muted);font-size:13px;font-weight:500;white-space:nowrap}
 .pdf-ico{flex:none}
+.card__word{font-family:var(--head);font-weight:700;font-size:30px;letter-spacing:-.01em;color:var(--ink)}

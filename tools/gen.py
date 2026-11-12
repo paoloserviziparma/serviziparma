@@ -231,7 +231,7 @@ P = {
    also=['Fatturazione elettronica per i professionisti','Gestione documentale','Processo Civile Telematico','Antiriciclaggio','Documenti/Web'],
    who='Commercialisti, consulenti del lavoro, avvocati e CTU.',
    desc='Studio di Sistemi a Parma: mandati, parcellazione, pratiche, agende e controllo di gestione per commercialisti, consulenti del lavoro e avvocati.'),
- 'job': dict(name='JOB', sito='https://www.sistemi.com/software-gestionali/job/job-paghe/', schede=[('Job per i consulenti del lavoro', 'JOB_CONSULENTI-scheda.pdf'), ('Job per le aziende', 'JOB_AZIENDE-scheda.pdf'), ('Gestione dei CCNL', 'JOB-Gestione-dei-CCNL_scheda.pdf'), ('Assistente normativo CCNL', 'JOB_Assistente-Normativo-CCNL-scheda.pdf'), ('Pratiche', 'JOB-Pratiche-scheda.pdf'), ('Analisi dei costi', 'JOB_AnalisiCosti-scheda.pdf'), ('Budget del personale', 'JOB_Budget-del-personale-scheda.pdf'), ('Planner: pianificazione dei processi', 'JOB-Planner_Pianificazione-processi-operativi_scheda.pdf'), ('PeopleLink: risorse umane', 'Peoplelink-Sistemi_scheda.pdf')], title='Job', cat='professionisti', logo='job', camp='job',
+ 'job': dict(name='JOB', sito='https://www.sistemi.com/software-gestionali/job/job-paghe/', schede=[('Job per i consulenti del lavoro', 'JOB_CONSULENTI-scheda.pdf'), ('Job per le aziende', 'JOB_AZIENDE-scheda.pdf'), ('Gestione dei CCNL', 'JOB-Gestione-dei-CCNL_scheda.pdf'), ('Assistente normativo CCNL', 'JOB_Assistente-Normativo-CCNL-scheda.pdf'), ('Pratiche', 'JOB-Pratiche-scheda.pdf'), ('Analisi dei costi', 'JOB_AnalisiCosti-scheda.pdf'), ('Budget del personale', 'JOB_Budget-del-personale-scheda.pdf'), ('Planner: pianificazione dei processi', 'JOB-Planner_Pianificazione-processi-operativi_scheda.pdf')], title='Job', cat='professionisti', logo='job', camp='job',
    local='Software paghe e personale a Parma', claim='A lavoro per chi lavora.',
    sub='Sicurezza, semplicità, integrazione',
    intro='JOB è la soluzione Sistemi multiaziendale e multicontrattuale per studi professionali, imprese e associazioni che vogliono gestire l’amministrazione del personale in modo semplice ed efficiente.',
@@ -242,7 +242,7 @@ P = {
             ('Fiscale','Modelli 730 e 770 in un unico ambiente di lavoro, con inserimento dati facilitato.'),
             ('Presenze','Applicazione in rete con cui il cliente dello studio inserisce le ore di presenza.'),
             ('DOCUMENTI/web','Pubblica online modelli fiscali, F24, parcelle e cedolini e avvisa il cliente.'),
-            ('JOB/Risorse','La soluzione Sistemi per la gestione delle risorse umane nella struttura aziendale.'),
+            ('Risorse umane con PeopleLink','La gestione delle risorse umane, delle presenze e delle note spese è affidata a PeopleLink, la piattaforma HR cloud di Sistemi, che si sincronizza con JOB.'),
             ('Time','Rilevazione presenze per aziende pubbliche o private, con esportazione verso la procedura paghe.')],
    also=['JOB/Presenze','Gestione documentale integrata','Documenti/Web','Assistente normativo','Privacy GDPR'],
    who='Consulenti del lavoro, studi professionali, imprese e associazioni.',
@@ -285,6 +285,24 @@ P = {
             ('Per lo studio: controllo di gestione','Analisi e controllo di gestione per il cliente.')],
    also=[], who='Piccole imprese seguite da un commercialista che usa Profis.',
    desc='Profis AZ di Sistemi a Parma: l’azienda gestisce fatture, acquisti e magazzino, il commercialista adempimenti, dichiarazioni e bilanci.'),
+ 'peoplelink': dict(name='PEOPLELINK', sito='https://www.sistemi.com/peoplelink/', schede=[('PeopleLink','Peoplelink-Sistemi_scheda.pdf')],
+   title='PeopleLink', cat='aziende', logo=None, camp='peoplelink',
+   local='Software HR e rilevazione presenze a Parma', claim='Le persone, i turni e le spese in un posto solo.',
+   breve='La piattaforma HR cloud e mobile di Sistemi: presenze e turni, ferie, timesheet e commesse, note spese e controllo accessi. Si integra con Job.',
+   sub='Risorse umane, presenze, commesse, note spese',
+   intro='PEOPLELINK è la piattaforma HR cloud e mobile di Sistemi: gestisce i processi delle risorse umane, la rilevazione delle presenze, la pianificazione delle ferie, i timesheet e le commesse, le note spese. Si usa da browser o da app, ed è pensata per aziende di tutte le dimensioni.',
+   cloud_q=('PeopleLink si installa in azienda?', 'No: PeopleLink è una piattaforma cloud e mobile. Si usa dal browser o dall’app, senza installazioni sui PC e senza server in sede.'),
+   avvio='attivazione della piattaforma cloud, configurazione di turni, causali e profili, importazione delle anagrafiche',
+   modules=[('Timbratura e rilevazione presenze','Timbrature con badge, tag NFC, PC, smartphone e geolocalizzazione; turni, smartworking e hybrid work, straordinari, trasferte, giustificativi e piani ferie, fino all’invio dei dati per il cedolino.'),
+            ('Il cartellino, in autonomia','Il dipendente vede il proprio cartellino, giustifica le assenze, chiede ferie o extra orari e consulta i totalizzatori; il responsabile gestisce le richieste, organizza i turni e controlla presenti e assenti.'),
+            ('Commesse e attività','Rapportini di lavoro, commesse e progetti: compilazione e validazione del timesheet da browser o da app, anagrafica clienti, costi orari e spese accessorie, attività programmate a calendario.'),
+            ('Gestione risorse umane','Anagrafica avanzata e storicizzata, documenti e attestati, competenze e schede di valutazione, corsi e gap formativi, sondaggi aziendali, aspetti retributivi, asset e DPI, scadenziario e promemoria.'),
+            ('Rendicontazione e note spese','Spese generiche, rimborsi chilometrici, ospiti, valuta estera, allegati e anticipi in contanti, con associazione a commessa e centro di costo e l’intero flusso autorizzativo fino al pagamento.'),
+            ('Controllo accessi e varchi','Le regole di ingresso sono associate alla persona e al suo badge: zone ad accesso limitato, fasce orarie, profili per dipendenti e visitatori, esportazione dei passaggi.'),
+            ('Business Intelligence integrata','Oltre 15 tipi di grafici, raggruppamenti per periodo o anagrafica e filtri personalizzati su organizzazione, presenze, dati amministrativi e timesheet.'),
+            ('Integrazione con JOB','I dati dei rapporti di lavoro e le anagrafiche di aziende e dipendenti arrivano in automatico da JOB e restano sincronizzati.')],
+   also=[], who='Aziende di tutte le dimensioni che vogliono gestire presenze, risorse umane, commesse e note spese in un unico ambiente, da web e da app.',
+   desc='PeopleLink di Sistemi a Parma: piattaforma HR cloud e mobile per presenze, ferie, timesheet e commesse, note spese e controllo accessi. Si integra con Job.'),
  'quadra': dict(name='QUADRA', sito='https://www.sistemi.com/software-gestionali/quadra/', schede=[('Quadra', 'QUADRA-scheda.pdf')], title='Quadra', cat='aziende', logo='quadra', camp=None,
    local='Software di fatturazione elettronica a Parma', claim='Fatturazione web, semplice da avviare.',
    sub='Fatturazione web',
@@ -299,10 +317,12 @@ P = {
 
 def product_card(key, cls='card reveal'):
     p = P[key]
+    marchio = (f'<img class="card__logo" src="/assets/img/prodotti/{p["logo"]}.jpg" alt="{p["title"]} – Sistemi" width="640" height="200" loading="lazy">'
+               if p.get('logo') else f'<span class="card__word">{h(p["name"])}</span>')
     return f'''<a class="{cls}" href="/{p["cat"]}/{key}/">
-  <img class="card__logo" src="/assets/img/prodotti/{p["logo"]}.jpg" alt="{p["title"]} – Sistemi" width="640" height="200" loading="lazy">
+  {marchio}
   <span class="card__tag">{h(p["sub"])}</span>
-  <p>{h(p["intro"].split(":")[0] if len(p["intro"])>200 else p["intro"])}</p>
+  <p>{h(p.get("breve") or (p["intro"].split(":")[0] + "." if len(p["intro"]) > 200 else p["intro"]))}</p>
   <span class="link-arrow">Scopri {p["title"]} →</span></a>'''
 
 def product_page(key):
@@ -315,9 +335,9 @@ def product_page(key):
     if p['also']:
         also = '<div class="note reveal" style="margin-top:36px"><b style="color:#000">Inoltre:</b> ' + ' · '.join(h(a) for a in p['also']) + '</div>'
     camp = ''
-    if p['camp']:
+    if p['camp'] and p.get('logo'):
         camp = f'<div class="reveal" style="margin-top:40px"><span class="campaign"><img src="/assets/img/campagna/{p["camp"]}.png" alt="Campagna Sistemi 2026 dedicata a {p["title"]}" width="349" height="120" loading="lazy"></span></div>'
-    cloud_q = (f'Posso usare {p["title"]} in cloud?', f'Sì: con Sistemi in Rete i software Sistemi si usano dal web, ospitati nelle Service Farm Sistemi, senza server in ufficio. Ti aiutiamo a scegliere tra installazione in locale e cloud.')
+    cloud_q = p.get('cloud_q') or (f'Posso usare {p["title"]} in cloud?', f'Sì: con Sistemi in Rete i software Sistemi si usano dal web, ospitati nelle Service Farm Sistemi, senza server in ufficio. Ti aiutiamo a scegliere tra installazione in locale e cloud.')
     faqs = [
         (f'Chi installa e assiste {p["title"]} a Parma?', f'Servizi Informatici Srl (Sistemi Parma), concessionario certificato Sistemi SpA dal 1990 per le province di Parma, Piacenza e Reggio Emilia. Installiamo, configuriamo e seguiamo {p["title"]} con personale certificato Sistemi.'),
         (f'A chi è adatto {p["title"]}?', p['who']),
@@ -332,7 +352,10 @@ def product_page(key):
         f'<li><a class="pdf-link" href="{DL}{f}" rel="noopener" target="_blank">{icon("file","icon pdf-ico")}'
         f'<span>{h(t)}</span><small>PDF · sistemi.com</small></a></li>' for t, f in p['schede'])
     scheda1 = p['schede'][0][1]
-    body = page_hero(crumbs, h(p['local']), h(p['claim']), h(p['intro']), logo=f'/assets/img/prodotti/{p["logo"]}.jpg', logo_alt=f'{p["title"]} – Sistemi',
+    body = page_hero(crumbs, h(p['local']), h(p['claim']), h(p['intro']),
+                     logo=(f'/assets/img/prodotti/{p["logo"]}.jpg' if p.get('logo')
+                           else (f'/assets/img/campagna/{p["camp"]}.png' if p.get('camp') else None)),
+                     logo_alt=(f'{p["title"]} – Sistemi' if p.get('logo') else f'Campagna Sistemi dedicata a {p["title"]}'),
                      extra=f'<div class="btn-row" style="margin-top:32px"><a class="btn btn--red" href="/contatti/?prodotto={p["title"].replace(" ","%20")}#modulo">Chiedi una demo di {p["title"]}</a><a class="btn btn--line" href="{DL}{scheda1}" rel="noopener" target="_blank">Scheda PDF</a><a class="btn btn--line" href="#moduli">Cosa fa</a></div>')
     body += f'''
 <section class="section" id="moduli"><div class="wrap">
@@ -348,7 +371,7 @@ def product_page(key):
   <div><span class="kicker">Come lavoriamo</span><h2 class="h2 js-split">Dalla scelta all’assistenza, a Parma</h2></div>
   <ol class="list-check reveal" style="font-size:17px">
     <li><b>Analisi</b>: capiamo come lavori e ti mostriamo {p["title"]} in una demo.</li>
-    <li><b>Avvio</b>: installazione in locale o in cloud con Sistemi in Rete, configurazione e recupero dati.</li>
+    <li><b>Avvio</b>: {p.get('avvio', 'installazione in locale o in cloud con Sistemi in Rete, configurazione e recupero dati')}.</li>
     <li><b>Formazione</b>: affiancamento e corsi in aula con docenti certificati Sistemi.</li>
     <li><b>Assistenza</b>: ticket dal software, telefono e accesso remoto.</li>
   </ol>

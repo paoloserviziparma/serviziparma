@@ -43,7 +43,7 @@ def build(g):
 <section class="section" id="professionisti"><div class="wrap">
   <div class="head-row"><h2 class="h2 js-split">Per gli studi professionali</h2><p>Commercialisti, consulenti del lavoro, avvocati e CTU: attività amministrative, organizzative e di controllo dello studio in un unico ambiente.</p></div>
   <div class="grid grid--3">{product_card("profis")}{product_card("studio","card reveal reveal-d1")}{product_card("job","card reveal reveal-d2")}</div>
-  <div class="extra reveal"><span>Completano l’offerta per lo studio</span><a href="https://www.sistemi.com/software-gestionali/profis/sportellocloud/" rel="noopener" target="_blank" aria-label="Sportello Cloud su sistemi.com"><img src="/assets/img/prodotti/sportello-cloud.jpg" alt="Sportello Cloud – Sistemi" width="900" height="148" loading="lazy" style="height:40px"></a><img src="/assets/img/prodotti/job-risorse.jpg" alt="Job Risorse – Sistemi" width="900" height="195" loading="lazy" style="height:40px"></div>
+  <div class="extra reveal"><span>Completa l’offerta per lo studio</span><a href="https://www.sistemi.com/software-gestionali/profis/sportellocloud/" rel="noopener" target="_blank" aria-label="Sportello Cloud su sistemi.com"><img src="/assets/img/prodotti/sportello-cloud.jpg" alt="Sportello Cloud – Sistemi" width="900" height="148" loading="lazy" style="height:40px"></a></div>
 </div></section>
 
 <section class="section" id="aziende" style="padding-top:24px"><div class="wrap">
@@ -119,6 +119,7 @@ def build(g):
     <a class="card card--soft reveal reveal-d1" href="/whistleblowing/">{icon("lock")}<h3>Whistleblowing</h3><p>Il canale di segnalazione riservato previsto dal D.lgs. 24/2023, in cloud, da PC, tablet e smartphone.</p></a>
     <a class="card card--soft reveal reveal-d2" href="/aziende/verticali/">{icon("tool")}<h3>Gestionali verticali</h3><p>Agrifarm, Autotrasporti, Green Services, Manutenzione impianti, Euritmo e Filconad per Spring ed eSolver.</p></a>
     <a class="card card--soft reveal reveal-d3" href="/siti-web/">{icon("globe")}<h3>Siti web</h3><p>Siti per aziende e studi, anche integrati con il gestionale e con l’e-commerce.</p></a>
+    <a class="card card--soft reveal" href="/aziende/peoplelink/">{icon("users")}<h3>PeopleLink</h3><p>La piattaforma HR cloud e mobile: presenze, ferie, commesse e note spese, integrata con Job.</p></a>
   </div>
 </div></section>
 
@@ -172,7 +173,7 @@ def build(g):
     crumbs = [(None, 'Professionisti')]
     body = page_hero(crumbs, 'Software per studi professionali a Parma', 'Software gestionali per gli studi professionali', 'Gestisci in modo integrato le attività amministrative, organizzative e di controllo dello studio: commercialisti, consulenti del lavoro, avvocati e CTU.')
     body += f'''<section class="section"><div class="wrap"><div class="grid grid--3">{product_card("profis")}{product_card("studio","card reveal reveal-d1")}{product_card("job","card reveal reveal-d2")}</div>
-<div class="extra reveal"><span>Completano l’offerta</span><a href="https://www.sistemi.com/software-gestionali/profis/sportellocloud/" rel="noopener" target="_blank" aria-label="Sportello Cloud su sistemi.com"><img src="/assets/img/prodotti/sportello-cloud.jpg" alt="Sportello Cloud – Sistemi" width="900" height="148" loading="lazy" style="height:40px"></a><img src="/assets/img/prodotti/job-risorse.jpg" alt="Job Risorse – Sistemi" width="900" height="195" loading="lazy" style="height:40px"></div></div></section>
+<div class="extra reveal"><span>Completa l’offerta</span><a href="https://www.sistemi.com/software-gestionali/profis/sportellocloud/" rel="noopener" target="_blank" aria-label="Sportello Cloud su sistemi.com"><img src="/assets/img/prodotti/sportello-cloud.jpg" alt="Sportello Cloud – Sistemi" width="900" height="148" loading="lazy" style="height:40px"></a></div></div></section>
 <section class="section section--soft" id="sportello"><div class="wrap">
   <div class="head-row"><div><span class="kicker">Documentazione</span><h2 class="h2 js-split">Sportello Cloud: le schede</h2></div><p>I servizi web che lo studio mette a disposizione dei clienti. Schede ufficiali di Sistemi SpA, in PDF.</p></div>
   <ul class="pdf-list reveal">
@@ -188,7 +189,7 @@ def build(g):
 
     crumbs = [(None, 'Aziende')]
     body = page_hero(crumbs, 'Software gestionali per aziende a Parma', 'Software gestionali per le aziende', 'Una suite di gestionali Sistemi per gestire in modo integrato amministrazione, vendite, acquisti, magazzino e controllo: dalla ditta individuale all’ERP.')
-    body += f'''<section class="section"><div class="wrap"><div class="grid grid--2">{product_card("quadra")}{product_card("profis-az","card reveal reveal-d1")}{product_card("spring")}{product_card("esolver","card reveal reveal-d1")}</div></div></section>
+    body += f'''<section class="section"><div class="wrap"><div class="grid grid--2">{product_card("quadra")}{product_card("profis-az","card reveal reveal-d1")}{product_card("spring")}{product_card("esolver","card reveal reveal-d1")}{product_card("peoplelink")}</div></div></section>
 <section class="section section--soft"><div class="wrap split" style="align-items:center"><div><span class="kicker">Per settore</span><h2 class="h2 js-split">Gestionali verticali</h2><p class="lead" style="margin-top:14px">Agricoltura, autotrasporti, aree verdi, manutenzione impianti e formati EDI per la grande distribuzione.</p></div><div class="reveal"><a class="btn btn--dark" href="/aziende/verticali/">Scopri i verticali</a></div></div></section>
 {slogan("slogan-cane", "i [software] #Sistemi sono i migliori amici del vostro {futuro}.")}'''
     page('/aziende/', 'Software gestionali per aziende a Parma: Spring, eSolver, Quadra | Sistemi Parma', 'Gestionali Sistemi per aziende a Parma: Quadra per la fatturazione web, Profis AZ, Spring per piccole imprese ed eSolver ERP. Installazione e assistenza.', body, crumbs)

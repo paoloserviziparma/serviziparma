@@ -18,6 +18,7 @@
 - [Profis AZ](https://www.serviziparma.com/aziende/profis-az/): gestione dell'azienda coadiuvata dal commercialista
 - [Spring](https://www.serviziparma.com/aziende/spring/): gestionale per piccole e micro imprese
 - [eSolver](https://www.serviziparma.com/aziende/esolver/): ERP per amministrazione, logistica, analitica e servizi
+- [PeopleLink](https://www.serviziparma.com/aziende/peoplelink/): piattaforma HR cloud e mobile per presenze, ferie, timesheet e commesse, note spese e controllo accessi; si integra con Job
 - [Gestionali verticali](https://www.serviziparma.com/aziende/verticali/): Agrifarm, Autotrasporti, Green Services, Manutenzione impianti, Euritmo, Filconad
 
 ## Servizi
