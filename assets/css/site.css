@@ -299,3 +299,11 @@ body.modal-open{overflow:hidden}
 }
 
 @media (max-width:768px){.hero__in{padding-top:56px;padding-bottom:64px;gap:40px}}
+
+/* Schede PDF */
+.pdf-list{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px}
+.pdf-link{display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px;min-height:64px;text-decoration:none;color:var(--ink);transition:border-color .2s,transform .2s,box-shadow .2s}
+.pdf-link:hover{border-color:var(--red);transform:translateY(-2px);box-shadow:0 10px 24px rgba(20,20,20,.08);color:var(--ink)}
+.pdf-link span{font-weight:600;font-size:16px;flex:1 1 140px;min-width:0}
+.pdf-link small{color:var(--muted);font-size:13px;font-weight:500;white-space:nowrap}
+.pdf-ico{flex:none}

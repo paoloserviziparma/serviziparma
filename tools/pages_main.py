@@ -43,7 +43,7 @@ def build(g):
 <section class="section" id="professionisti"><div class="wrap">
   <div class="head-row"><h2 class="h2 js-split">Per gli studi professionali</h2><p>Commercialisti, consulenti del lavoro, avvocati e CTU: attività amministrative, organizzative e di controllo dello studio in un unico ambiente.</p></div>
   <div class="grid grid--3">{product_card("profis")}{product_card("studio","card reveal reveal-d1")}{product_card("job","card reveal reveal-d2")}</div>
-  <div class="extra reveal"><span>Completano l’offerta per lo studio</span><img src="/assets/img/prodotti/sportello-cloud.jpg" alt="Sportello Cloud – Sistemi" width="900" height="148" loading="lazy" style="height:40px"><img src="/assets/img/prodotti/job-risorse.jpg" alt="Job Risorse – Sistemi" width="900" height="195" loading="lazy" style="height:40px"></div>
+  <div class="extra reveal"><span>Completano l’offerta per lo studio</span><a href="https://www.sistemi.com/software-gestionali/profis/sportellocloud/" rel="noopener" target="_blank" aria-label="Sportello Cloud su sistemi.com"><img src="/assets/img/prodotti/sportello-cloud.jpg" alt="Sportello Cloud – Sistemi" width="900" height="148" loading="lazy" style="height:40px"></a><img src="/assets/img/prodotti/job-risorse.jpg" alt="Job Risorse – Sistemi" width="900" height="195" loading="lazy" style="height:40px"></div>
 </div></section>
 
 <section class="section" id="aziende" style="padding-top:24px"><div class="wrap">
@@ -107,13 +107,15 @@ def build(g):
       <tr><th scope="row">Backup e aggiornamenti</th><td data-label="In ufficio">Da organizzare in sede</td><td data-label="In cloud">Gestiti nell’infrastruttura Sistemi</td></tr>
       <tr><th scope="row">Connessione</th><td data-label="In ufficio">Lavori anche senza internet</td><td data-label="In cloud">Serve una connessione stabile</td></tr>
     </tbody></table></div>
-  <div class="reveal" style="margin-top:40px"><img src="/assets/img/campagna/slogan-nuvola-800.jpg" alt="il {{futuro digitale}}? è nella rete delle [soluzioni software] #Sistemi." width="800" height="300" loading="lazy" style="max-width:560px;width:100%"></div>
+  <div class="reveal" style="margin-top:40px;display:flex;flex-wrap:wrap;gap:24px 40px;align-items:center">
+    <img src="/assets/img/campagna/slogan-nuvola-800.jpg" alt="il {{futuro digitale}}? è nella rete delle [soluzioni software] #Sistemi." width="800" height="300" loading="lazy" style="max-width:480px;width:100%">
+    <a class="link-arrow" href="https://www.sistemi.com/sistemi-in-rete/" rel="noopener" target="_blank">SISTEMINRETE su sistemi.com ↗</a></div>
 </div></section>
 
 <section class="section" id="servizi"><div class="wrap">
   <h2 class="h2 js-split" style="margin-bottom:40px">Non solo gestionali</h2>
   <div class="grid grid--4">
-    <a class="card card--soft reveal" href="/#cloud">{icon("cloud")}<h3>Sistemi in Rete</h3><p>I tuoi gestionali dal web, ospitati nelle Service Farm Sistemi: niente server in ufficio.</p></a>
+    <a class="card card--soft reveal" href="#cloud">{icon("cloud")}<h3>Sistemi in Rete</h3><p>I tuoi gestionali dal web, ospitati nelle Service Farm Sistemi: niente server in ufficio.</p></a>
     <a class="card card--soft reveal reveal-d1" href="/whistleblowing/">{icon("lock")}<h3>Whistleblowing</h3><p>Il canale di segnalazione riservato previsto dal D.lgs. 24/2023, in cloud, da PC, tablet e smartphone.</p></a>
     <a class="card card--soft reveal reveal-d2" href="/aziende/verticali/">{icon("tool")}<h3>Gestionali verticali</h3><p>Agrifarm, Autotrasporti, Green Services, Manutenzione impianti, Euritmo e Filconad per Spring ed eSolver.</p></a>
     <a class="card card--soft reveal reveal-d3" href="/siti-web/">{icon("globe")}<h3>Siti web</h3><p>Siti per aziende e studi, anche integrati con il gestionale e con l’e-commerce.</p></a>
@@ -170,7 +172,16 @@ def build(g):
     crumbs = [(None, 'Professionisti')]
     body = page_hero(crumbs, 'Software per studi professionali a Parma', 'Software gestionali per gli studi professionali', 'Gestisci in modo integrato le attività amministrative, organizzative e di controllo dello studio: commercialisti, consulenti del lavoro, avvocati e CTU.')
     body += f'''<section class="section"><div class="wrap"><div class="grid grid--3">{product_card("profis")}{product_card("studio","card reveal reveal-d1")}{product_card("job","card reveal reveal-d2")}</div>
-<div class="extra reveal"><span>Completano l’offerta</span><img src="/assets/img/prodotti/sportello-cloud.jpg" alt="Sportello Cloud – Sistemi" width="900" height="148" loading="lazy" style="height:40px"><img src="/assets/img/prodotti/job-risorse.jpg" alt="Job Risorse – Sistemi" width="900" height="195" loading="lazy" style="height:40px"></div></div></section>
+<div class="extra reveal"><span>Completano l’offerta</span><a href="https://www.sistemi.com/software-gestionali/profis/sportellocloud/" rel="noopener" target="_blank" aria-label="Sportello Cloud su sistemi.com"><img src="/assets/img/prodotti/sportello-cloud.jpg" alt="Sportello Cloud – Sistemi" width="900" height="148" loading="lazy" style="height:40px"></a><img src="/assets/img/prodotti/job-risorse.jpg" alt="Job Risorse – Sistemi" width="900" height="195" loading="lazy" style="height:40px"></div></div></section>
+<section class="section section--soft" id="sportello"><div class="wrap">
+  <div class="head-row"><div><span class="kicker">Documentazione</span><h2 class="h2 js-split">Sportello Cloud: le schede</h2></div><p>I servizi web che lo studio mette a disposizione dei clienti. Schede ufficiali di Sistemi SpA, in PDF.</p></div>
+  <ul class="pdf-list reveal">
+    <li><a class="pdf-link" href="https://www.sistemi.com/downloads/SPORTELLO_cloud-scheda.pdf" rel="noopener" target="_blank">{icon("file","icon pdf-ico")}<span>Sportello Cloud</span><small>PDF · sistemi.com</small></a></li>
+    <li><a class="pdf-link" href="https://www.sistemi.com/downloads/Sportello-QUADRA-scheda.pdf" rel="noopener" target="_blank">{icon("file","icon pdf-ico")}<span>Sportello Quadra</span><small>PDF · sistemi.com</small></a></li>
+    <li><a class="pdf-link" href="https://www.sistemi.com/downloads/Sportello-Documenti-condivisi-scheda.pdf" rel="noopener" target="_blank">{icon("file","icon pdf-ico")}<span>Sportello Documenti condivisi</span><small>PDF · sistemi.com</small></a></li>
+    <li><a class="pdf-link" href="https://www.sistemi.com/downloads/Sportello-Interrogazione-conti-bancari_scheda.pdf" rel="noopener" target="_blank">{icon("file","icon pdf-ico")}<span>Sportello Interrogazione conti bancari</span><small>PDF · sistemi.com</small></a></li>
+  </ul>
+</div></section>
 {slogan("slogan-luna", "più <vicini> ai vostri #clienti; anche da molto_remoto.")}
 {cta_band("Corsi in aula per il tuo studio", "Contabilità e Cespiti, Studio 4, Pratiche e Locazioni e gli incontri gratuiti 100% Profis.", "/corsi/", "Vedi i corsi", ("/contatti/#modulo", "Chiedi una demo"))}'''
     page('/professionisti/', 'Software per commercialisti e studi professionali a Parma | Sistemi Parma', 'Profis, Studio e Job di Sistemi per commercialisti, consulenti del lavoro e avvocati a Parma: installazione, assistenza e corsi da Servizi Informatici.', body, crumbs)
@@ -259,7 +270,7 @@ def build(g):
   <div class="note reveal" style="margin-top:28px"><b style="color:#000">L’offerta commerciale</b> è definita per classi di numero di dipendenti: un costo di attivazione e un canone che decorre dal primo giorno del mese successivo all’attivazione. Il servizio permette di attivare più ditte; per motivi di riservatezza in fase di accesso se ne raccomanda l’uso solo all’interno di un gruppo societario.</div>
 </div></section>
 {faq_html(wb_faqs)}
-{cta_band("Vuoi attivare il canale di segnalazione?", "Ti spieghiamo come funziona e ti prepariamo l’offerta in base al numero di dipendenti.", "/contatti/?prodotto=Whistleblowing#modulo", "Chiedi informazioni", (f"mailto:{MAIL}?subject=Richiesta%20info%20Whistleblowing", "Scrivi una email"))}'''
+{cta_band("Vuoi attivare il canale di segnalazione?", "Ti spieghiamo come funziona e ti prepariamo l’offerta in base al numero di dipendenti.", "/contatti/?prodotto=Whistleblowing#modulo", "Chiedi informazioni", ("https://www.sistemi.com/segnalazioni-illeciti-whistleblowing/", "La scheda su sistemi.com ↗"))}'''
     page('/whistleblowing/', 'Software whistleblowing D.lgs. 24/2023 a Parma | Sistemi Parma', 'Sistemi Whistleblowing a Parma: il canale di segnalazione riservato previsto dal D.lgs. 24/2023, in cloud, con anonimato e registro. Obblighi, sanzioni e adempimenti.', body, crumbs, [faq_ld(wb_faqs)])
 
     # ------------------------------------------------------------ Siti web

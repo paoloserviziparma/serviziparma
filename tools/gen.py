@@ -207,7 +207,7 @@ def cta_band(title, text, btn_href, btn_text, second=None):
 
 # ---------------------------------------------------------------- Prodotti
 P = {
- 'profis': dict(name='PROFIS', title='Profis', cat='professionisti', logo='profis', camp='profis',
+ 'profis': dict(name='PROFIS', sito='https://www.sistemi.com/software-gestionali/profis/', schede=[('Profis', 'PROFIS-scheda.pdf'), ('Società e bilanci', 'PROFIS_Bilanci-scheda.pdf'), ('Gestione pratiche', 'PROFIS-pratiche-scheda.pdf'), ('Contratti di locazione', 'PROFIS_contratti-locazione-immobiliare_scheda.pdf'), ('Revisione legale', 'PROFIS-Revisione-scheda.pdf'), ('Analisi crisi d’impresa', 'PROFIS-Analisi-crisi-di-impresa-scheda.pdf'), ('Pianificazione fiscale', 'PROFIS-Pianificazione-fiscale-scheda.pdf'), ('Budget e business plan', 'PROFIS-Budget-e-Business-Plan-scheda.pdf'), ('Consulenza', 'PROFIS-Consulenza-scheda.pdf'), ('Enti del Terzo Settore', 'PROFIS_ETS-scheda.pdf'), ('Bonus ZES', 'PROFIS-Bonus-ZES_scheda.pdf'), ('Profis per le aziende', 'PROFIS_AZIENDE-scheda.pdf')], title='Profis', cat='professionisti', logo='profis', camp='profis',
    local='Software per commercialisti a Parma', claim='Il consulente dei commercialisti.',
    sub='Qualità, competenza e innovazione',
    intro='PROFIS è l’insieme di applicazioni Sistemi per gli studi professionali e le associazioni che offrono consulenza amministrativa e fiscale: contabilità, fiscale, bilanci e pratiche in un unico ambiente di lavoro.',
@@ -220,7 +220,7 @@ P = {
    also=['Gestione documentale','Pianificazione fiscale','Analisi finanziaria e benchmarking','Contratti di locazione','Privacy GDPR','PROFIS/pratiche e PROFIS/revisione'],
    who='Commercialisti, studi professionali e associazioni che offrono consulenza amministrativa e fiscale.',
    desc='Profis di Sistemi a Parma: contabilità, fiscale, bilanci e pratiche per commercialisti. Installazione, assistenza e corsi da Servizi Informatici, concessionario dal 1990.'),
- 'studio': dict(name='STUDIO', title='Studio', cat='professionisti', logo='studio', camp='studio',
+ 'studio': dict(name='STUDIO', sito='https://www.sistemi.com/software-gestionali/studio/', schede=[('Studio', 'STUDIO-scheda.pdf'), ('Studi legali', 'STUDIO_Studi-legali-scheda.pdf'), ('Processo Civile Telematico', 'STUDIO_PCT_scheda.pdf'), ('Antiriciclaggio', 'STUDIO_Antiriciclaggio-scheda.pdf')], title='Studio', cat='professionisti', logo='studio', camp='studio',
    local='Gestionale per studi professionali a Parma', claim='Studiato per il tuo lavoro.',
    sub='Organizzazione, condivisione, mobilità',
    intro='STUDIO è il gestionale Sistemi per commercialisti, consulenti del lavoro e avvocati: supporta la gestione amministrativa e operativa dello studio professionale, dai mandati al controllo di gestione.',
@@ -231,7 +231,7 @@ P = {
    also=['Fatturazione elettronica per i professionisti','Gestione documentale','Processo Civile Telematico','Antiriciclaggio','Documenti/Web'],
    who='Commercialisti, consulenti del lavoro, avvocati e CTU.',
    desc='Studio di Sistemi a Parma: mandati, parcellazione, pratiche, agende e controllo di gestione per commercialisti, consulenti del lavoro e avvocati.'),
- 'job': dict(name='JOB', title='Job', cat='professionisti', logo='job', camp='job',
+ 'job': dict(name='JOB', sito='https://www.sistemi.com/software-gestionali/job/job-paghe/', schede=[('Job per i consulenti del lavoro', 'JOB_CONSULENTI-scheda.pdf'), ('Job per le aziende', 'JOB_AZIENDE-scheda.pdf'), ('Gestione dei CCNL', 'JOB-Gestione-dei-CCNL_scheda.pdf'), ('Assistente normativo CCNL', 'JOB_Assistente-Normativo-CCNL-scheda.pdf'), ('Pratiche', 'JOB-Pratiche-scheda.pdf'), ('Analisi dei costi', 'JOB_AnalisiCosti-scheda.pdf'), ('Budget del personale', 'JOB_Budget-del-personale-scheda.pdf'), ('Planner: pianificazione dei processi', 'JOB-Planner_Pianificazione-processi-operativi_scheda.pdf'), ('PeopleLink: risorse umane', 'Peoplelink-Sistemi_scheda.pdf')], title='Job', cat='professionisti', logo='job', camp='job',
    local='Software paghe e personale a Parma', claim='A lavoro per chi lavora.',
    sub='Sicurezza, semplicità, integrazione',
    intro='JOB è la soluzione Sistemi multiaziendale e multicontrattuale per studi professionali, imprese e associazioni che vogliono gestire l’amministrazione del personale in modo semplice ed efficiente.',
@@ -247,7 +247,7 @@ P = {
    also=['JOB/Presenze','Gestione documentale integrata','Documenti/Web','Assistente normativo','Privacy GDPR'],
    who='Consulenti del lavoro, studi professionali, imprese e associazioni.',
    desc='Job di Sistemi a Parma: paghe, Libro Unico, 730 e 770, presenze online e cedolini pubblicati sul web. Per studi, imprese e associazioni.'),
- 'spring': dict(name='SPRING', title='Spring', cat='aziende', logo='spring', camp=None,
+ 'spring': dict(name='SPRING', sito='https://www.sistemi.com/software-gestionali/spring/', schede=[('Spring', 'SPRING-scheda.pdf'), ('Gestione documentale', 'Gestione-documentale_scheda.pdf')], title='Spring', cat='aziende', logo='spring', camp=None,
    local='Gestionale per piccole aziende a Parma', claim='Partire bene, crescere meglio.',
    sub='Affidabilità, qualità, assistenza',
    intro='SPRING è il gestionale Sistemi pensato per le piccole aziende: unisce un’ampia completezza funzionale a tempi di implementazione rapidi.',
@@ -260,7 +260,7 @@ P = {
    also=['Gestione documentale','Controllo di gestione e reporting','Gestionali verticali per settore'],
    who='Piccole e micro imprese che cercano un sistema informativo completo e rapido da avviare.',
    desc='Spring di Sistemi a Parma: contabilità, vendite, acquisti, magazzino e cespiti per piccole e micro imprese. Installazione e assistenza da Servizi Informatici.'),
- 'esolver': dict(name='eSOLVER', title='eSolver', cat='aziende', logo='esolver', camp='esolver',
+ 'esolver': dict(name='eSOLVER', sito='https://www.sistemi.com/software-gestionali/esolver/', schede=[('eSolver', 'eSOLVER-scheda.pdf'), ('eSolver GRP', 'eSOLVER-GRP-scheda.pdf'), ('Produzione manifatturiera', 'ESOLVER-Produzione-manifatturiera_scheda.pdf'), ('CRM', 'eSOLVER-CRM-scheda.pdf'), ('Gestione documentale', 'Gestione-documentale_scheda.pdf')], title='eSolver', cat='aziende', logo='esolver', camp='esolver',
    local='ERP per aziende a Parma', claim='Tutti i vantaggi del fare sistema.',
    sub='Processi, gestione, controllo',
    intro='eSOLVER è il gestionale ERP Sistemi per imprese e associazioni di diversi settori: gestisce le attività amministrative, controlla la gestione e automatizza i processi aziendali.',
@@ -273,7 +273,7 @@ P = {
    also=['Controllo di gestione e reporting','Gestionali verticali per settore','Business intelligence'],
    who='Imprese e associazioni che vogliono un ERP per amministrazione, logistica e controllo.',
    desc='eSolver di Sistemi a Parma: ERP per amministrazione, ciclo attivo e passivo, logistica con MRP, contabilità analitica e produzione servizi.'),
- 'profis-az': dict(name='PROFIS AZ', title='Profis AZ', cat='aziende', logo='profis-az', camp=None,
+ 'profis-az': dict(name='PROFIS AZ', sito='https://www.sistemi.com/software-gestionali/profis/profis-az/', schede=[('Profis AZ per l’azienda', 'PROFIS-AZ-aziende-scheda.pdf'), ('Profis AZ per il professionista', 'PROFIS-Az_professionisti_scheda.pdf')], title='Profis AZ', cat='aziende', logo='profis-az', camp=None,
    local='Gestionale azienda e commercialista a Parma', claim='L’azienda e il commercialista, sugli stessi dati.',
    sub='Gestione coadiuvata dal commercialista',
    intro='PROFIS AZ è la soluzione pensata per il commercialista che offre consulenza gestionale e fiscale, lasciando l’azienda autonoma nella gestione quotidiana.',
@@ -285,7 +285,7 @@ P = {
             ('Per lo studio: controllo di gestione','Analisi e controllo di gestione per il cliente.')],
    also=[], who='Piccole imprese seguite da un commercialista che usa Profis.',
    desc='Profis AZ di Sistemi a Parma: l’azienda gestisce fatture, acquisti e magazzino, il commercialista adempimenti, dichiarazioni e bilanci.'),
- 'quadra': dict(name='QUADRA', title='Quadra', cat='aziende', logo='quadra', camp=None,
+ 'quadra': dict(name='QUADRA', sito='https://www.sistemi.com/software-gestionali/quadra/', schede=[('Quadra', 'QUADRA-scheda.pdf')], title='Quadra', cat='aziende', logo='quadra', camp=None,
    local='Software di fatturazione elettronica a Parma', claim='Fatturazione web, semplice da avviare.',
    sub='Fatturazione web',
    intro='QUADRA è il software Sistemi per la fatturazione web: semplice e veloce da avviare e da usare, anche per i forfettari.',
@@ -327,13 +327,22 @@ def product_page(key):
     ]
     if key in ('profis', 'studio'):
         faqs.insert(3, ('Fate corsi di formazione?', 'Sì, organizziamo corsi pratici in aula nella nostra sede di Via Sicuri 42/a a Parma, sui tuoi dati, con un massimo di 6 partecipanti. Trovi il calendario nella pagina Corsi.'))
+    DL = 'https://www.sistemi.com/downloads/'
+    schede = ''.join(
+        f'<li><a class="pdf-link" href="{DL}{f}" rel="noopener" target="_blank">{icon("file","icon pdf-ico")}'
+        f'<span>{h(t)}</span><small>PDF · sistemi.com</small></a></li>' for t, f in p['schede'])
+    scheda1 = p['schede'][0][1]
     body = page_hero(crumbs, h(p['local']), h(p['claim']), h(p['intro']), logo=f'/assets/img/prodotti/{p["logo"]}.jpg', logo_alt=f'{p["title"]} – Sistemi',
-                     extra=f'<div class="btn-row" style="margin-top:32px"><a class="btn btn--red" href="/contatti/?prodotto={p["title"].replace(" ","%20")}#modulo">Chiedi una demo di {p["title"]}</a><a class="btn btn--line" href="#moduli">Cosa fa</a></div>')
+                     extra=f'<div class="btn-row" style="margin-top:32px"><a class="btn btn--red" href="/contatti/?prodotto={p["title"].replace(" ","%20")}#modulo">Chiedi una demo di {p["title"]}</a><a class="btn btn--line" href="{DL}{scheda1}" rel="noopener" target="_blank">Scheda PDF</a><a class="btn btn--line" href="#moduli">Cosa fa</a></div>')
     body += f'''
 <section class="section" id="moduli"><div class="wrap">
   <div class="head-row"><h2 class="h2 js-split">{h(p["sub"])}</h2><p>{h(p["who"])}</p></div>
   <div class="grid grid--3" style="gap:36px 40px">{mods}</div>
   {also}{camp}
+</div></section>
+<section class="section section--soft" id="schede"><div class="wrap">
+  <div class="head-row"><div><span class="kicker">Documentazione</span><h2 class="h2 js-split">Schede prodotto</h2></div><p>Le schede ufficiali di Sistemi SpA, in PDF. Si aprono sul sito sistemi.com.</p></div>
+  <ul class="pdf-list reveal">{schede}</ul>
 </div></section>
 <section class="section section--soft"><div class="wrap split">
   <div><span class="kicker">Come lavoriamo</span><h2 class="h2 js-split">Dalla scelta all’assistenza, a Parma</h2></div>
@@ -345,12 +354,12 @@ def product_page(key):
   </ol>
 </div></section>
 {faq_html(faqs)}
-{cta_band(f"Vuoi saperne di più su {p['title']}?", "Scrivici: ti rispondiamo noi e organizziamo una demo.", f"/contatti/?prodotto={p['title'].replace(' ','%20')}#modulo", "Contattaci", ("https://www.sistemi.com/", "Il sito di Sistemi"))}'''
+{cta_band(f"Vuoi saperne di più su {p['title']}?", "Scrivici: ti rispondiamo noi e organizziamo una demo. Le schede tecniche complete sono sul sito di Sistemi.", f"/contatti/?prodotto={p['title'].replace(' ','%20')}#modulo", "Contattaci", (p['sito'], f"{p['title']} su sistemi.com ↗"))}'''
     ld = [faq_ld(faqs), {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": p['title'],
           "applicationCategory": "BusinessApplication", "operatingSystem": "Windows, Web",
           "description": p['intro'], "brand": {"@type": "Brand", "name": "Sistemi"},
           "publisher": {"@type": "Organization", "name": "Sistemi SpA", "url": "https://www.sistemi.com/"},
-          "provider": {"@id": SITE + "/#azienda"}, "url": SITE + path}]
+          "provider": {"@id": SITE + "/#azienda"}, "url": SITE + path, "sameAs": p['sito']}]
     page(path, f'{p["title"]} – {p["local"]} | Sistemi Parma', p['desc'], body, crumbs, ld)
 
 # ---------------------------------------------------------------- Corsi

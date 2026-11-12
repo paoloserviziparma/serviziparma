@@ -20,6 +20,16 @@ Dopo ogni modifica a testi, CSS o JS:
 Lo script riscrive tutte le pagine, la sitemap e aggiorna il numero di versione `?v=` di CSS e JS.
 Netlify non esegue nessuna build: pubblica i file così come sono.
 
+## Link al sito Sistemi
+Ogni pagina prodotto ha, in `tools/gen.py`:
+- `sito=` la pagina ufficiale su sistemi.com (pulsante nella fascia finale e `sameAs` nei dati strutturati);
+- `schede=` l'elenco delle schede PDF, come coppie (titolo, nome del file in
+  `https://www.sistemi.com/downloads/`). La prima è anche il pulsante "Scheda PDF" nell'intestazione.
+
+Attenzione ai nomi dei file: non seguono una regola unica (es. `eSOLVER-scheda.pdf` con la e
+minuscola ma `ESOLVER-Produzione-manifatturiera_scheda.pdf` maiuscolo). Prima di aggiungerne uno,
+conviene aprirlo nel browser per controllare che risponda.
+
 ## Moduli (Netlify Forms)
 - `contatti`: home, contatti, 100% Profis (campo nascosto `pagina`)
 - `iscrizione-corso`: pagine dei corsi, con i dati per la fattura (la fattura è emessa a parte)
