@@ -31,6 +31,12 @@ def convert(text, depth):
     text = ABS.sub(lambda m: to_rel(m.group(1), prefix), text)
     # i moduli Netlify non esistono nell'anteprima: li rendiamo navigabili
     text = text.replace(' method="POST"', ' method="GET"').replace(' data-netlify="true"', '')
+    # Nel riquadro di un'anteprima la pagina nuova si apre con il riquadro ancora
+    # scorso a metà: dopo ogni navigazione riportiamo la vista in cima.
+    text = text.replace('</body>',
+                        '<script>try{if(window.top!==window.self&&!location.hash){'
+                        'addEventListener("load",function(){try{'
+                        'document.documentElement.scrollIntoView({block:"start"})}catch(e){}});}}catch(e){}</script>\n</body>')
     text = text.replace('<main id="contenuto">',
                         '<div style="background:#141414;color:#fff;font:600 14px/1.4 Montserrat,sans-serif;'
                         'padding:10px 20px;text-align:center">Anteprima privata del nuovo sito · '
