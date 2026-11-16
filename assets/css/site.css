@@ -295,3 +295,4 @@ body.modal-open{overflow:hidden}
 .pdf-link small{color:var(--muted);font-size:13px;font-weight:500;white-space:nowrap}
 .pdf-ico{flex:none}
 .card__word{font-family:var(--head);font-weight:700;font-size:30px;letter-spacing:-.01em;color:var(--ink)}
+.thumb__dur{position:absolute;left:18px;top:18px;background:rgba(0,0,0,.55);color:#fff;border-radius:6px;padding:3px 9px;font-family:var(--body);font-size:13px;font-weight:600;font-variant-numeric:tabular-nums}

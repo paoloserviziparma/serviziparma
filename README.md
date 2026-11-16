@@ -58,6 +58,11 @@ la finestra mostra il pulsante "Guarda il video su YouTube".
 
 Il video di presentazione nella sezione "Chi siamo" della home è `PROMO_YT` in `tools/gen.py`.
 
+Lo stesso video può comparire anche su una pagina prodotto o su un corso: basta aggiungere
+al prodotto in `P` o al corso in `COURSES` le chiavi
+`video=('<id YouTube>', '<titolo>', <durata in secondi>)`, `video_testo='...'` e,
+facoltativo, `video_pillola='<slug della pillola>'` per il link "Vedi la pillola".
+
 ## Eventi gratuiti (Eventbrite)
 In `/corsi/` c'è un commento con il pulsante da usare: `data-eventbrite="ID_EVENTO"`.
 Lo script di Eventbrite si carica solo quando si preme il pulsante.

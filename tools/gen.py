@@ -124,6 +124,22 @@ def faq_ld(faqs):
     return {"@context": "https://schema.org", "@type": "FAQPage",
             "mainEntity": [{"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in faqs]}
 
+def video_section(yt, titolo, sec, occhiello='Video', h2='Guardalo in un minuto', testo='', scuro=False, slug_pillola=None):
+    """Una sezione con la miniatura del video: YouTube si carica solo al clic."""
+    cls = 'section section--dark' if scuro else 'section section--soft'
+    thumb = 'thumb--red' if scuro else ''
+    extra = (f'<p style="margin-top:18px"><a class="link-arrow" href="/pillole/{slug_pillola}/">Vedi la pillola →</a></p>'
+             if slug_pillola else '')
+    return f'''<section class="{cls}" id="video"><div class="wrap split" style="align-items:center">
+  <div><span class="kicker">{h(occhiello)}</span><h2 class="h2 js-split">{h(h2)}</h2>
+    <p class="lead" style="margin-top:16px">{h(testo)}</p>{extra}</div>
+  <div class="reveal">
+    <button type="button" class="video-btn" data-video="https://www.youtube.com/watch?v={yt}" data-title="{h(titolo)}" aria-label="Riproduci il video: {h(titolo)}">
+      <div class="thumb {thumb}"><span class="thumb__t">{h(titolo)}</span><span class="thumb__dur">{durata(sec)}</span><span class="thumb__play">{PLAY}</span></div></button>
+  </div>
+</div></section>'''
+
+
 def faq_html(faqs, title='Domande frequenti'):
     items = ''.join(f'<details><summary>{h(q)}</summary><p>{h(a)}</p></details>' for q, a in faqs)
     return f'''<section class="section" id="faq"><div class="wrap">
@@ -229,6 +245,8 @@ P = {
             ('Controllo di gestione','Report automatici su andamento e redditività dello studio, dei clienti e dei servizi.'),
             ('Area Legale','Per gli studi legali: Pratiche Giudiziarie, integrazione con PolisWeb, Redattore Atti Giudiziari e Mediazione Civile.')],
    also=['Fatturazione elettronica per i professionisti','Gestione documentale','Processo Civile Telematico','Antiriciclaggio','Documenti/Web'],
+   video=('8hwIuY5fYGQ', 'Studio 4', 85), video_pillola='studio-4',
+   video_testo='Un minuto e mezzo per vedere come Studio tiene insieme servizi, mandati, parcelle e pratiche dello studio.',
    who='Commercialisti, consulenti del lavoro, avvocati e CTU.',
    desc='Studio di Sistemi a Parma: mandati, parcellazione, pratiche, agende e controllo di gestione per commercialisti, consulenti del lavoro e avvocati.'),
  'job': dict(name='JOB', sito='https://www.sistemi.com/software-gestionali/job/job-paghe/', schede=[('Job per i consulenti del lavoro', 'JOB_CONSULENTI-scheda.pdf'), ('Job per le aziende', 'JOB_AZIENDE-scheda.pdf'), ('Gestione dei CCNL', 'JOB-Gestione-dei-CCNL_scheda.pdf'), ('Assistente normativo CCNL', 'JOB_Assistente-Normativo-CCNL-scheda.pdf'), ('Pratiche', 'JOB-Pratiche-scheda.pdf'), ('Analisi dei costi', 'JOB_AnalisiCosti-scheda.pdf'), ('Budget del personale', 'JOB_Budget-del-personale-scheda.pdf'), ('Planner: pianificazione dei processi', 'JOB-Planner_Pianificazione-processi-operativi_scheda.pdf')], title='Job', cat='professionisti', logo='job', camp='job',
@@ -376,6 +394,7 @@ def product_page(key):
     <li><b>Assistenza</b>: ticket dal software, telefono e accesso remoto.</li>
   </ol>
 </div></section>
+{video_section(*p['video'], occhiello='Video', h2=f"Guarda {p['title']} in azione", testo=p.get('video_testo', ''), slug_pillola=p.get('video_pillola')) if p.get('video') else ''}
 {faq_html(faqs)}
 {cta_band(f"Vuoi saperne di più su {p['title']}?", "Scrivici: ti rispondiamo noi e organizziamo una demo. Le schede tecniche complete sono sul sito di Sistemi.", f"/contatti/?prodotto={p['title'].replace(' ','%20')}#modulo", "Contattaci", (p['sito'], f"{p['title']} su sistemi.com ↗"))}'''
     ld = [faq_ld(faqs), {"@context": "https://schema.org", "@type": "SoftwareApplication", "name": p['title'],
@@ -394,6 +413,8 @@ COURSES = {
          ('Cespiti',['Fasi di avviamento','Caricamento registrazioni con integrazione cespiti','Caricamento movimenti dei cespiti','Calcolo degli ammortamenti e contabilizzazione da rettifiche contabili','Stampa del registro dei beni ammortizzabili','Elaborazioni per dichiarazioni fiscali'])]),
  'studio-4': dict(title='Studio 4 – Amministrazione e organizzazione dello studio', short='Studio 4', prod='Studio', ore='4 mezze giornate · 12 ore',
    intro='Il corso per organizzare lo studio professionale con Studio 4: si imparano le regole standard della procedura sfruttandone gli automatismi, per lavorare in modo più rapido e ordinato. È il primo passo di un percorso di crescita per chi usa Profis.',
+   video=('8hwIuY5fYGQ', 'Studio 4', 85), video_pillola='studio-4',
+   video_testo='Una panoramica di Studio 4: è il programma che impari a usare durante il corso.',
    per=['chi ha iniziato a usare Studio senza una formazione adeguata','chi vuole migliorare la gestione dello studio','chi sta usando Studio al di sotto delle sue reali potenzialità'],
    prog=[('Programma',['Definizione del Catalogo Servizi','Mandati professionali: stampa, firma e scansione del mandato','Rilevazione delle prestazioni extra mandato','Addebiti','Avvisi di parcella','Parcellazione automatica','Piani attività','Gestione delle pratiche','Agende','Archiviazione della posta elettronica','Archiviazione documentale','Analisi'])]),
  'pratiche-locazioni': dict(title='Profis Pratiche e Contratti di Locazione', prod='Profis', ore='2 mezze giornate · 6 ore',
@@ -475,6 +496,7 @@ def course_page(key):
     <div class="card card--soft reveal reveal-d2">{icon("check")}<h3>Docenti certificati</h3><p>Formazione continua sui percorsi ufficiali Sistemi SpA.</p></div>
   </div>
 </div></section>
+{video_section(*c['video'], occhiello='Video', h2='Di cosa parliamo al corso', testo=c.get('video_testo', ''), slug_pillola=c.get('video_pillola'), scuro=True) if c.get('video') else ''}
 <section class="section section--soft" id="iscrizione-box"><div class="wrap">
   <div class="contact-box" style="background:#fff">
     <div><span class="kicker">Iscrizione</span><h2 class="h2">Iscriviti al corso</h2><p class="lead" style="margin-top:14px">Compila il modulo: ti ricontattiamo per confermare date e quota.</p>
@@ -494,22 +516,29 @@ def course_page(key):
 # Canale: https://www.youtube.com/@serviziinformaticisrl-parm8248
 # Un video locale in assets/video/<slug>.mp4 ha la precedenza sul video YouTube.
 POSTS = [
- ('la-delega-unica','La Delega Unica','2025-12-23',None,'Delega Unica'),
- ('i-documenti-della-conservazione','I Documenti della Conservazione','2023-12-14',None,'Conservazione digitale, Profis'),
- ('notifiche-web-sportello-conservazione','Notifiche Web – Sportello Conservazione','2023-12-11',None,'Sportello Conservazione'),
- ('download-massivo-fatture-agenzia-delle-entrate','Download massivo fatture Agenzia delle Entrate','2023-03-29',None,'Fatture elettroniche'),
- ('sportello-documenti-condivisi-mobile','Sportello Documenti Condivisi MOBILE','2022-04-22',None,'Sportello'),
- ('conservazione-digitale-il-controllo-del-cruscotto','Conservazione digitale: il controllo del cruscotto','2022-01-18','WvZDsLNwcjU','Conservazione digitale'),
- ('esolver-come-aggiornare-i-codici-iva','eSolver: come aggiornare i codici IVA','2021-09-24','WWMsv2aYCnc','eSolver, IVA'),
- ('contabilizzazione-automatica-fatture-e-corrispettivi','Contabilizzazione automatica fatture e corrispettivi','2021-09-23','FkSBprllt68','Profis, Fatture elettroniche'),
- ('gestione-documenti-integrativi','Gestione documenti integrativi','2021-09-13','4ayJ9CkR3SI','Profis'),
- ('i-contratti-di-locazione','I Contratti di Locazione','2020-11-24','gASvLNzW5H0','Contratti di locazione'),
- ('la-riconciliazione-fatture','La Riconciliazione fatture','2020-11-10','IkwlLcdsrkw','Fatture elettroniche'),
- ('registrazione-automatica-cassa-banca-paghe','Registrazione automatica cassa, banca, paghe','2020-10-27','Fdj6J7a5Pmk','Contabilità'),
- ('analisi-crisi-di-impresa','Analisi crisi di Impresa','2020-10-13','u6HswNBZgfQ','Crisi d’impresa'),
+ ('studio-4','Studio 4','2026-11-12','8hwIuY5fYGQ','Studio',85),
+ ('la-delega-unica','La Delega Unica','2025-12-23','xjpYblJDO4Q','Delega Unica',550),
+ ('i-documenti-della-conservazione','I Documenti della Conservazione','2023-12-14','50ApMPf_gNA','Conservazione digitale, Profis',38),
+ ('notifiche-web-sportello-conservazione','Notifiche Web – Sportello Conservazione','2023-12-11','Wdkw3liuqzc','Sportello Conservazione',112),
+ ('download-massivo-fatture-agenzia-delle-entrate','Download massivo fatture Agenzia delle Entrate','2023-03-29','JD4B6cyL65s','Fatture elettroniche',462),
+ ('sportello-documenti-condivisi-mobile','Sportello Documenti Condivisi MOBILE','2022-04-22',None,'Sportello',None),
+ ('conservazione-digitale-il-controllo-del-cruscotto','Conservazione digitale: il controllo del cruscotto','2022-01-18','Mf2KkGrXkZU','Conservazione digitale',107),
+ ('esolver-come-aggiornare-i-codici-iva','eSolver: come aggiornare i codici IVA','2021-09-24','WWMsv2aYCnc','eSolver, IVA',88),
+ ('contabilizzazione-automatica-fatture-e-corrispettivi','Contabilizzazione automatica fatture e corrispettivi','2021-09-23','FkSBprllt68','Profis, Fatture elettroniche',47),
+ ('gestione-documenti-integrativi','Gestione documenti integrativi','2021-09-13','4ayJ9CkR3SI','Profis',52),
+ ('i-contratti-di-locazione','I Contratti di Locazione','2020-11-24','gASvLNzW5H0','Contratti di locazione',66),
+ ('la-riconciliazione-fatture','La Riconciliazione fatture','2020-11-10','IkwlLcdsrkw','Fatture elettroniche',54),
+ ('registrazione-automatica-cassa-banca-paghe','Registrazione automatica cassa, banca, paghe','2020-10-27','Fdj6J7a5Pmk','Contabilità',58),
+ ('analisi-crisi-di-impresa','Analisi crisi di Impresa','2020-10-13','u6HswNBZgfQ','Crisi d’impresa',57),
 ]
 PROMO_YT = 'fFs1ofhfDec'  # Servizi Informatici Video Promo Mercato Studio
 MESI = ['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto','settembre','ottobre','novembre','dicembre']
+def durata(sec):
+    return f'{sec // 60}:{sec % 60:02d}' if sec else ''
+
+def durata_iso(sec):
+    return f'PT{sec // 60}M{sec % 60}S' if sec else None
+
 def itdate(d):
     y, m, g = d.split('-'); return f'{int(g)} {MESI[int(m)-1]} {y}'
 THUMBS = ['thumb--red', '', 'thumb--grey']
@@ -520,21 +549,22 @@ def video_src(slug, yt):
         return '/assets/video/' + slug + '.mp4'
     return 'https://www.youtube.com/watch?v=' + yt if yt else None
 
-def post_card(i, slug, title, date, yt=None):
+def post_card(i, slug, title, date, yt=None, sec=None):
     has = video_src(slug, yt)
     badge = f'<span class="thumb__play">{PLAY}</span>' if has else '<span class="thumb__soon">in arrivo</span>'
-    meta = 'video' if has else 'video in arrivo'
+    dur = f'<span class="thumb__dur">{durata(sec)}</span>' if has and sec else ''
+    meta = ('video · ' + durata(sec) if sec else 'video') if has else 'video in arrivo'
     return f'''<a class="post-card reveal" href="/pillole/{slug}/">
-  <div class="thumb {THUMBS[i % 3]}"><span class="thumb__t">{h(title)}</span>{badge}</div>
+  <div class="thumb {THUMBS[i % 3]}"><span class="thumb__t">{h(title)}</span>{dur}{badge}</div>
   <span class="post-card__meta"><time datetime="{date}">{itdate(date)}</time> · {meta}</span>
   <h3>{h(title)}</h3></a>'''
 
-def post_page(i, slug, title, date, yt, tags):
+def post_page(i, slug, title, date, yt, tags, sec=None):
     path = f'/pillole/{slug}/'
     crumbs = [('/pillole/', 'Le Pillole'), (None, title)]
     src = video_src(slug, yt)
     if src:
-        video = f'<button type="button" class="video-btn" data-video="{src}" data-title="{h(title)}" aria-label="Riproduci il video: {h(title)}"><div class="thumb {THUMBS[i % 3]}"><span class="thumb__t">{h(title)}</span><span class="thumb__play">{PLAY}</span></div></button>'
+        video = f'<button type="button" class="video-btn" data-video="{src}" data-title="{h(title)}" aria-label="Riproduci il video: {h(title)}"><div class="thumb {THUMBS[i % 3]}"><span class="thumb__t">{h(title)}</span>{f'<span class="thumb__dur">{durata(sec)}</span>' if sec else ''}<span class="thumb__play">{PLAY}</span></div></button>'
         if yt and not src.startswith('/'):
             video += f'<p class="video-note">Il video si apre qui nella pagina e viene caricato da YouTube solo quando premi play. Puoi anche <a href="https://www.youtube.com/watch?v={yt}" rel="noopener" target="_blank">guardarlo su YouTube</a>.</p>'
     else:
@@ -543,10 +573,10 @@ def post_page(i, slug, title, date, yt, tags):
     if slug == 'notifiche-web-sportello-conservazione':
         extra = '<p>Collegato: <a href="/pillole/conservazione-digitale-il-controllo-del-cruscotto/">il controllo del cruscotto dello Sportello Conservazione</a>.</p>'
     others = [p for p in POSTS if p[0] != slug and video_src(p[0], p[3])][:3]
-    cards = ''.join(post_card(j, s, t, d, y) for j, (s, t, d, y, _tg) in enumerate(others))
+    cards = ''.join(post_card(j, s, t, d, y, sc) for j, (s, t, d, y, _tg, sc) in enumerate(others))
     body = f'''<section class="page-hero"><div class="wrap">{crumbs_html(crumbs)}
   <div class="hero-seq"><h1><span class="kicker">Le Pillole · videotutorial</span>{h(title)}</h1>
-  <p class="lead"><time datetime="{date}">{itdate(date)}</time> · {h(tags)}</p></div></div></section>
+  <p class="lead"><time datetime="{date}">{itdate(date)}</time> · {h(tags)}{' · ' + durata(sec) if sec else ''}</p></div></div></section>
 <section class="section"><div class="wrap"><div class="video-box reveal">{video}</div>
   <div class="prose" style="margin-top:28px">{extra}<p>Le Pillole sono brevi video in cui il nostro team mostra come usare al meglio una funzione dei software Sistemi. Hai dubbi? <a href="/contatti/?prodotto=Assistenza#modulo">Scrivici</a> o apri un ticket dal tuo software.</p></div>
 </div></section>
@@ -560,7 +590,8 @@ def post_page(i, slug, title, date, yt, tags):
                    "uploadDate": date, "thumbnailUrl": f'https://i.ytimg.com/vi/{yt}/hqdefault.jpg',
                    "embedUrl": f'https://www.youtube-nocookie.com/embed/{yt}',
                    "contentUrl": f'https://www.youtube.com/watch?v={yt}',
-                   "publisher": {"@id": SITE + "/#azienda"}, "inLanguage": "it"})
+                   "publisher": {"@id": SITE + "/#azienda"}, "inLanguage": "it",
+                   **({"duration": durata_iso(sec)} if sec else {})})
     page(path, f'{title} – Le Pillole | Sistemi Parma', f'{title}: videotutorial de Le Pillole di Sistemi Parma sui software Sistemi ({tags}).', body, crumbs, ld, og_type='article')
 
 # ---------------------------------------------------------------- Pagine

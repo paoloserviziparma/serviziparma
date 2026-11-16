@@ -18,7 +18,7 @@ def build(g):
         ('Come chiedo una demo?', 'Compila il modulo contatti o chiamaci: ti mostriamo il software più adatto e ti aiutiamo a scegliere.'),
     ]
     con_video = [p for p in POSTS if video_src(p[0], p[3])]
-    latest = ''.join(post_card(i, s, t, d, y) for i, (s, t, d, y, _tg) in enumerate(con_video[:3]))
+    latest = ''.join(post_card(i, s, t, d, y, sc) for i, (s, t, d, y, _tg, sc) in enumerate(con_video[:3]))
     body = f'''<section class="hero"><div class="wrap hero__in">
   <div class="hero__text hero-seq">
     <h1><span class="kicker">Software gestionali a Parma · Via Sicuri 42/a</span>Il software giusto per lo studio e per l’azienda.</h1>
@@ -338,13 +338,13 @@ def build(g):
     crumbs = [(None, 'Le Pillole')]
     pronte = [p for p in POSTS if video_src(p[0], p[3])]
     attesa = [p for p in POSTS if not video_src(p[0], p[3])]
-    cards = ''.join(post_card(i, s, t, d, y) for i, (s, t, d, y, _tg) in enumerate(pronte))
+    cards = ''.join(post_card(i, s, t, d, y, sc) for i, (s, t, d, y, _tg, sc) in enumerate(pronte))
     body = page_hero(crumbs, 'Videotutorial software Sistemi', 'Le Pillole', 'Brevi video in cui ti mostriamo come usare al meglio le funzioni dei software Sistemi: conservazione digitale, fatture elettroniche, pratiche e molto altro.')
     body += f'<section class="section"><div class="wrap"><div class="grid grid--3" style="gap:40px 24px">{cards}</div></div></section>'
     if attesa:
-        cards2 = ''.join(post_card(i, s, t, d, y) for i, (s, t, d, y, _tg) in enumerate(attesa))
+        cards2 = ''.join(post_card(i, s, t, d, y, sc) for i, (s, t, d, y, _tg, sc) in enumerate(attesa))
         body += f'''<section class="section section--soft"><div class="wrap">
-  <div class="head-row"><h2 class="h2 js-split">In arrivo</h2><p>Stiamo trasferendo queste pillole sul nuovo sito. Nel frattempo puoi chiedercele scrivendo a <a href="mailto:{g["MAIL"]}">{g["MAIL"]}</a>.</p></div>
+  <div class="head-row"><h2 class="h2 js-split">In arrivo</h2><p>{"Stiamo trasferendo questa pillola" if len(attesa) == 1 else "Stiamo trasferendo queste pillole"} sul nuovo sito. Nel frattempo puoi chiedercel{"a" if len(attesa) == 1 else "e"} scrivendo a <a href="mailto:{g["MAIL"]}">{g["MAIL"]}</a>.</p></div>
   <div class="grid grid--3" style="gap:40px 24px">{cards2}</div></div></section>'''
     page('/pillole/', 'Le Pillole: videotutorial sui software Sistemi | Sistemi Parma', 'Le Pillole di Sistemi Parma: brevi videotutorial su Profis, conservazione digitale, fatture elettroniche, Sportello e altri software Sistemi.', body, crumbs)
 
