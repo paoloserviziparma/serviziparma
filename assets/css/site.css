@@ -248,7 +248,7 @@ body.modal-open{overflow:hidden}
 .contact-list a{color:var(--ink)}
 
 /* Assist links */
-.assist{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.assist{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
 .assist a{display:block;text-decoration:none;color:#fff;border:1px solid rgba(255,255,255,.22);border-radius:12px;padding:18px;transition:border-color .2s,background .2s}
 .assist a:hover{border-color:#fff;color:#fff}
 .assist a b{display:block}

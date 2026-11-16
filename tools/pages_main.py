@@ -36,6 +36,16 @@ def build(g):
   <div class="reveal reveal-d3"><b>Assistenza remota</b>ticket, TeamViewer e AnyDesk</div>
 </div></section>
 
+<section class="section section--dark" id="assistenza"><div class="wrap split" style="align-items:center">
+  <div><h2 class="h2 js-split">Serve assistenza?</h2><p class="lead" style="margin-top:16px">Apri un ticket dal menu del tuo software Sistemi per allegare log e diagnostica, oppure avvia l’accesso remoto quando te lo chiede il tecnico.</p></div>
+  <div class="assist reveal">
+    <a href="https://assistenza.sistemi.com/" rel="noopener" target="_blank"><b>Assistenza Online</b><span>apri un ticket</span></a>
+    <a href="/assistenza/#remoto"><b>TeamViewer</b><span>QuickSupport</span></a>
+    <a href="/assistenza/#remoto"><b>AnyDesk</b><span>accesso remoto</span></a>
+    <a class="is-red" href="{TEL_HREF}"><b>{TEL}</b><span>chiamaci</span></a>
+  </div>
+</div></section>
+
 <section class="section" id="professionisti"><div class="wrap">
   <div class="head-row"><h2 class="h2 js-split">Per gli studi professionali</h2><p>Commercialisti, consulenti del lavoro, avvocati e CTU: attività amministrative, organizzative e di controllo dello studio in un unico ambiente.</p></div>
   <div class="grid grid--3">{product_card("profis")}{product_card("studio","card reveal reveal-d1")}{product_card("job","card reveal reveal-d2")}</div>
@@ -132,16 +142,6 @@ def build(g):
 <section class="section" id="pillole"><div class="wrap">
   <div class="head-row"><div><span class="kicker">Blog · videotutorial</span><h2 class="h2 js-split">Le Pillole</h2></div><a class="link-arrow" href="/pillole/">Tutte le pillole →</a></div>
   <div class="grid grid--3">{latest}</div>
-</div></section>
-
-<section class="section section--dark" id="assistenza"><div class="wrap split" style="align-items:center">
-  <div><h2 class="h2 js-split">Serve assistenza?</h2><p class="lead" style="margin-top:16px">Apri un ticket dal menu del tuo software Sistemi per allegare log e diagnostica, oppure avvia l’accesso remoto quando te lo chiede il tecnico.</p></div>
-  <div class="assist reveal">
-    <a href="https://assistenza.sistemi.com/" rel="noopener" target="_blank"><b>Assistenza Online</b><span>apri un ticket</span></a>
-    <a href="/assistenza/#remoto"><b>TeamViewer</b><span>QuickSupport</span></a>
-    <a href="/assistenza/#remoto"><b>AnyDesk</b><span>accesso remoto</span></a>
-    <a class="is-red" href="{TEL_HREF}"><b>{TEL}</b><span>chiamaci</span></a>
-  </div>
 </div></section>
 
 <section class="section" id="chi-siamo"><div class="wrap split">
