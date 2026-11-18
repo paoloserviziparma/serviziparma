@@ -3,6 +3,7 @@
 def build(g):
     h = g['h']; page = g['page']; page_hero = g['page_hero']; P = g['P']; icon = g['icon']
     slogan = g['slogan']; cta_band = g['cta_band']; faq_html = g['faq_html']; faq_ld = g['faq_ld']
+    icon_tile = g['icon_tile']
     product_card = g['product_card']; post_card = g['post_card']; POSTS = g['POSTS']; COURSES = g['COURSES']
     video_src = g['video_src']; PROMO_YT = g['PROMO_YT']; THUMBS = g['THUMBS']
     contact_form = g['contact_form']; TEL = g['TEL']; TEL_HREF = g['TEL_HREF']; MAIL = g['MAIL']; MAPS = g['MAPS']; ADDR = g['ADDR']
@@ -286,13 +287,17 @@ def build(g):
     as_faqs = [('Qual è il modo più rapido per chiedere assistenza?', 'Aprire la richiesta direttamente dal menu del tuo software Sistemi: puoi allegare il log degli errori e la diagnostica, seguire lo stato della richiesta e consultare lo storico dei casi risolti.'),
                ('Quando devo scaricare TeamViewer o AnyDesk?', 'Solo quando te lo chiede un nostro tecnico: servono per l’accesso remoto al tuo computer e velocizzano l’individuazione del problema.'),
                ('Posso telefonare?', 'Certo, il numero è 0521 252824.')]
-    body = page_hero(crumbs, 'Assistenza software Sistemi a Parma', 'Assistenza remota', 'Per i problemi sui software Sistemi ti consigliamo di aprire la richiesta dal menu del prodotto: puoi allegare log e diagnostica, seguire lo stato della richiesta e consultare lo storico dei casi risolti.')
-    body += f'''<section class="section"><div class="wrap"><div class="grid grid--3">
-  <div class="card reveal">{icon("file")}<h3>Assistenza Online (AOL)</h3><p>Apri un ticket e ricevi indicazioni rapide per risolvere il problema.</p><a class="btn btn--dark" href="https://assistenza.sistemi.com/" rel="noopener" target="_blank" style="margin-top:auto">Accedi</a></div>
-  <div class="card reveal reveal-d1" id="remoto">{icon("grid")}<h3>TeamViewer QuickSupport</h3><p>Il programma per l’accesso remoto al computer: avvialo quando te lo chiede il tecnico.</p><div class="btn-row" style="margin-top:auto"><a class="btn btn--dark" href="https://download.teamviewer.com/download/TeamViewerQS_x64.exe" rel="noopener">Scarica (64 bit)</a><a class="btn btn--line" href="https://download.teamviewer.com/download/TeamViewerQS.exe" rel="noopener">32 bit</a></div></div>
-  <div class="card reveal reveal-d2">{icon("grid")}<h3>AnyDesk</h3><p>In alternativa a TeamViewer, per l’accesso remoto quando te lo chiede il tecnico.</p><a class="btn btn--dark" href="https://anydesk.com/it/downloads" rel="noopener" target="_blank" style="margin-top:auto">Scarica dal sito AnyDesk</a></div>
+    body = page_hero(crumbs, 'Assistenza software Sistemi a Parma', 'Assistenza remota',
+                     'Apri la richiesta dal menu del tuo software Sistemi, oppure avvia l’accesso remoto quando te lo chiede il tecnico.',
+                     compatta=True)
+    body += f'''<section class="section" style="padding-top:24px"><div class="wrap"><div class="grid grid--3 grid--alto">
+  <div class="card reveal"><img class="logo-tile" src="/assets/img/loghi/sistemi.png" alt="Sistemi" width="52" height="52"><h3>Assistenza Online (AOL)</h3><p>Apri un ticket: puoi allegare log e diagnostica e seguire lo stato.</p><a class="btn btn--dark" href="https://assistenza.sistemi.com/" rel="noopener" target="_blank" style="margin-top:auto">Accedi</a></div>
+  <div class="card reveal reveal-d1" id="remoto"><img class="logo-tile" src="/assets/img/loghi/teamviewer.png" alt="" width="52" height="52"><h3>TeamViewer QuickSupport</h3><p>Il programma per l’accesso remoto: avvialo quando te lo chiede il tecnico.</p>
+    <div style="margin-top:auto"><span class="card__eyebrow" style="display:block;margin-bottom:10px">Scarica per Windows o Mac</span>
+    <div class="btn-row btn-row--uno"><a class="btn btn--dark" href="https://download.teamviewer.com/download/TeamViewerQS_x64.exe" rel="noopener">64 bit</a><a class="btn btn--line" href="https://download.teamviewer.com/download/TeamViewerQS.exe" rel="noopener">32 bit</a><a class="btn btn--line" href="https://download.teamviewer.com/download/TeamViewerQS.dmg" rel="noopener">Mac</a></div></div></div>
+  <div class="card reveal reveal-d2"><img class="logo-tile logo-tile--chip" src="/assets/img/loghi/anydesk.png" alt="" width="169" height="52"><h3>AnyDesk</h3><p>In alternativa a TeamViewer, quando te lo chiede il tecnico.</p><a class="btn btn--dark" href="https://anydesk.com/it/downloads" rel="noopener" target="_blank" style="margin-top:auto">Scarica AnyDesk</a></div>
 </div>
-<div class="card card--soft reveal" style="margin-top:20px;flex-direction:row;flex-wrap:wrap;align-items:center;gap:20px">{icon("phone")}<div style="flex:1 1 260px"><h3>Preferisci parlarne?</h3><p>Chiamaci o scrivici: ti richiamiamo noi.</p></div><div class="btn-row"><a class="btn btn--red" href="{TEL_HREF}">{TEL}</a><a class="btn btn--line" href="mailto:{MAIL}">{MAIL}</a></div></div>
+</div>
 </div></section>
 {slogan("slogan-voci", "sentite le <voci>? è il nostro [servizio] #clienti.")}
 {faq_html(as_faqs)}

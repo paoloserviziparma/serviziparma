@@ -34,9 +34,15 @@ def convert(text, depth):
     # Nel riquadro di un'anteprima la pagina nuova si apre con il riquadro ancora
     # scorso a metà: dopo ogni navigazione riportiamo la vista in cima.
     text = text.replace('</body>',
-                        '<script>try{if(window.top!==window.self&&!location.hash){'
-                        'addEventListener("load",function(){try{'
-                        'document.documentElement.scrollIntoView({block:"start"})}catch(e){}});}}catch(e){}</script>\n</body>')
+                        '<script>(function(){try{if(window.top===window.self)return;var fermo=false;'
+                        '["wheel","touchstart","keydown","mousedown"].forEach(function(ev){'
+                        'addEventListener(ev,function(){fermo=true},{passive:true,once:true})});'
+                        'function su(){if(fermo)return;try{var t=null;'
+                        'if(location.hash){try{t=document.querySelector(location.hash)}catch(e){}}'
+                        '(t||document.documentElement).scrollIntoView({block:"start",behavior:"instant"})}catch(e){}}'
+                        'addEventListener("DOMContentLoaded",su);addEventListener("load",su);'
+                        '[0,80,250,600,1200].forEach(function(ms){setTimeout(su,ms)})}catch(e){}})();'
+                        '</script>\n</body>')
     text = text.replace('<main id="contenuto">',
                         '<div style="background:#141414;color:#fff;font:600 14px/1.4 Montserrat,sans-serif;'
                         'padding:10px 20px;text-align:center">Anteprima privata del nuovo sito · '

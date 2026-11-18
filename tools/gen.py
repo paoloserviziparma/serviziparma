@@ -63,8 +63,15 @@ ICONS = {
     'file': '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/>',
     'chart': '<path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/>',
     'calendar': '<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>',
+    'screens': '<rect x="2" y="4" width="9" height="7" rx="1"/><rect x="13" y="13" width="9" height="7" rx="1"/><path d="M6.5 11v3.5a1 1 0 0 0 1 1H13"/><path d="M17.5 13V9.5a1 1 0 0 0-1-1H11"/>',
+    'pointer': '<rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/><path d="m9 7 5.5 5.5-2.3.6-1 2.2z"/>',
     'phone': '<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>',
 }
+
+def icon_tile(name):
+    """Il segno del servizio dentro una piastrella rossa, come un distintivo."""
+    return f'<span class="icon-tile">{icon(name)}</span>'
+
 
 def icon(name, cls='icon'):
     return f'<svg class="{cls}" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">{ICONS[name]}</svg>'
@@ -199,9 +206,9 @@ def page(path, title, desc, body, crumbs=None, ld=None, robots='index,follow', c
     if robots.startswith('index'):
         PAGES.append(path)
 
-def page_hero(crumbs, kicker, h1, lead, logo=None, logo_alt='', extra=''):
+def page_hero(crumbs, kicker, h1, lead, logo=None, logo_alt='', extra='', compatta=False):
     lg = f'<img class="page-hero__logo" src="{logo}" alt="{h(logo_alt)}" width="640" height="200">' if logo else ''
-    return f'''<section class="page-hero"><div class="wrap">
+    return f'''<section class="page-hero{' page-hero--compatta' if compatta else ''}"><div class="wrap">
   {crumbs_html(crumbs)}
   <div class="hero-seq">
     {lg}
