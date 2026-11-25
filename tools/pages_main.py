@@ -273,10 +273,20 @@ def build(g):
 
     # ------------------------------------------------------------ Siti web
     crumbs = [(None, 'Siti web')]
-    port = [('Piccinini Autotrasporti', 'https://www.transilospiccinini.com/', 'www.transilospiccinini.com'),
-            ('Il Parmense Trasporti', 'https://www.ilparmensetrasporti.it/', 'www.ilparmensetrasporti.it'),
-            ('BusinessBoard', 'https://www.businessboard.it/', 'www.businessboard.it')]
-    cards = ''.join(f'<a class="card reveal" href="{u}" rel="noopener" target="_blank"><span class="card__eyebrow">Sito realizzato</span><h3>{h(n)}</h3><p>{h(d)}</p><span class="link-arrow">Visita il sito ↗</span></a>' for n, u, d in port)
+    port = [('Piccinini Autotrasporti', 'https://www.transilospiccinini.com/', 'www.transilospiccinini.com', 'piccinini'),
+            ('Il Parmense Trasporti', 'https://www.ilparmensetrasporti.it/', 'www.ilparmensetrasporti.it', 'il-parmense'),
+            ('Carlo Mora Parrucchieri', 'https://www.carlomora.com/', 'www.carlomora.com', None),
+            ('JAM Photo', 'https://www.jamphoto.it/', 'www.jamphoto.it', 'jam-photo'),
+            ('Tymex', 'https://www.tymex.it/', 'www.tymex.it', 'tymex'),
+            ('Go Forrest', 'https://www.goforrest.it/', 'www.goforrest.it', 'go-forrest'),
+            ('UMA Parrucchieri', 'https://www.umaparrucchieri.it/', 'www.umaparrucchieri.it', 'uma-parrucchieri'),
+            ('Tecnogronda', 'https://www.tecnogronda.it/', 'www.tecnogronda.it', 'tecnogronda'),
+            ('Officina Agricola Ghisotti', 'https://www.officinaghisotti.it/', 'www.officinaghisotti.it', 'officina-ghisotti'),
+            ('Castaldini Autotrasporti', 'https://www.castaldinisas.it/', 'www.castaldinisas.it', 'castaldini')]
+    cards = ''.join(f'<a class="card reveal" href="{u}" rel="noopener" target="_blank">'
+                    + (f'<img class="card__marchio" src="/assets/img/portfolio/{lg}.png" alt="" width="200" height="64" loading="lazy">'
+                       if lg else '<span class="card__marchio card__marchio--vuoto">Sito realizzato</span>')
+                    + f'<h3>{h(n)}</h3><p>{h(d)}</p><span class="link-arrow">Visita il sito ↗</span></a>' for n, u, d, lg in port)
     body = page_hero(crumbs, 'Realizzazione siti web a Parma', 'Siti web per aziende e studi professionali', 'Progettiamo e realizziamo siti web per aziende e studi: ottimizzati per smartphone, in https, attenti al GDPR e, se serve, integrati con il gestionale e con l’e-commerce.')
     body += f'''<section class="section"><div class="wrap"><h2 class="h2 js-split" style="margin-bottom:36px">Alcuni lavori</h2><div class="grid grid--3">{cards}</div></div></section>
 {cta_band("Vuoi un sito nuovo?", "Raccontaci cosa ti serve: ti proponiamo una soluzione su misura.", "/contatti/?prodotto=Siti%20web#modulo", "Chiedi informazioni")}'''

@@ -121,6 +121,8 @@ main{padding-top:var(--header-h)}
 .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px;display:flex;flex-direction:column;gap:12px;text-decoration:none;color:inherit;transition:transform .25s,box-shadow .25s,border-color .25s}
 a.card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(20,20,20,.1);border-color:#c9c2be;color:inherit}
 .card__logo{height:64px;width:auto;align-self:flex-start;border-radius:4px;mix-blend-mode:multiply}
+.card__marchio{height:64px;max-width:200px;width:auto;object-fit:contain;object-position:left center;align-self:flex-start}
+.card__marchio--vuoto{display:flex;align-items:center;font-size:13px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#8a8481}
 .card__tag{font-weight:600;color:var(--red-dark);font-size:15px}
 .card__eyebrow{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .card p{margin:0;color:#444;font-size:16px}
