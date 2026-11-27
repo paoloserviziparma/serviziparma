@@ -105,7 +105,7 @@ FOOTER = f'''<footer class="site-footer">
     <div><b>Aziende</b><ul>
       <li><a href="/aziende/spring/">Spring</a></li><li><a href="/aziende/esolver/">eSolver</a></li><li><a href="/aziende/profis-az/">Profis AZ</a></li><li><a href="/aziende/quadra/">Quadra</a></li><li><a href="/aziende/verticali/">Gestionali verticali</a></li></ul></div>
     <div><b>Servizi</b><ul>
-      <li><a href="/corsi/">Corsi ed eventi</a></li><li><a href="/assistenza/">Assistenza remota</a></li><li><a href="/whistleblowing/">Whistleblowing</a></li><li><a href="/siti-web/">Siti web</a></li><li><a href="/pillole/">Le Pillole</a></li></ul></div>
+      <li><a href="/corsi/">Corsi ed eventi</a></li><li><a href="/assistenza/">Assistenza remota</a></li><li><a href="/whistleblowing/">Whistleblowing</a></li><li><a href="/siti-web/">Siti web</a></li><li><a href="/menu/">Menù di Sala</a></li><li><a href="/pillole/">Le Pillole</a></li></ul></div>
     <div><b>Contatti</b><ul>
       <li><a href="{TEL_HREF}">{TEL}</a></li><li><a href="mailto:{MAIL}">{MAIL}</a></li><li><a href="{MAPS}" rel="noopener" target="_blank">Via Sicuri 42/a, Parma</a></li></ul></div>
   </div>
@@ -608,6 +608,8 @@ def build():
     for i, p in enumerate(POSTS): post_page(i, *p)
     import pages_main
     pages_main.build(globals())
+    import pages_menu
+    pages_menu.build(globals())
     # sitemap
     urls = ''.join(f'<url><loc>{SITE}{p}</loc><lastmod>{TODAY}</lastmod><xhtml:link rel="alternate" hreflang="it" href="{SITE}{p}"/></url>\n' for p in sorted(set(PAGES)))
     open(os.path.join(R, 'sitemap.xml'), 'w').write(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n{urls}</urlset>\n')

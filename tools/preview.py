@@ -15,7 +15,10 @@ OUT = sys.argv[1] if len(sys.argv) > 1 else '/tmp/anteprima'
 SKIP_DIRS = {'.git', 'tools'}
 SKIP_FILES = {'netlify.toml', 'README.md', 'sitemap.xml', 'robots.txt', 'llms.txt', '.gitkeep'}
 
-ABS = re.compile(r'(?<=["\'])/([^"\'\s>]*)')
+# La barra che chiude un tag — <path d="…"/> — viene subito dopo una virgoletta
+# e non è un percorso: senza questa esclusione l'anteprima la trasformava in un
+# indirizzo e sfasciava ogni SVG della pagina.
+ABS = re.compile(r'(?<=["\'])/(?!>)([^"\'\s>]*)')
 
 
 def to_rel(path_and_tail, prefix):
